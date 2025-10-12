@@ -4,6 +4,12 @@ export interface QuizQuestion {
   correctAnswer: number;
 }
 
+export interface VideoResource {
+  title: string;
+  url: string;
+  thumbnail?: string;
+}
+
 export interface Lesson {
   id: string;
   title: string;
@@ -12,6 +18,7 @@ export interface Lesson {
   content: string;
   quiz: QuizQuestion[];
   imageUrl?: string;
+  videos?: VideoResource[];
 }
 
 export interface Category {

@@ -3,7 +3,7 @@ import { getLessonById } from '@/data/courses';
 import { Quiz } from '@/components/Quiz';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Target, CheckCircle } from 'lucide-react';
+import { ArrowLeft, Target, CheckCircle, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { markLessonComplete, isLessonCompleted } from '@/utils/progress';
 import { useToast } from '@/hooks/use-toast';
@@ -111,6 +111,59 @@ export default function LessonPage() {
             })}
           </div>
         </Card>
+
+        {/* Video Resources Section */}
+        {lesson.videos && lesson.videos.length > 0 && (
+          <div className="mb-8">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+                <Youtube className="w-4 h-4 text-accent-foreground" />
+              </div>
+              <h2 className="text-2xl font-bold">Ressources vidéo</h2>
+            </div>
+            <p className="text-muted-foreground mb-6">
+              Approfondis tes connaissances avec ces vidéos sélectionnées.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              {lesson.videos.map((video, index) => {
+                const videoId = video.url.includes('youtube.com') 
+                  ? new URL(video.url).searchParams.get('v')
+                  : video.url.split('/').pop();
+                const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+                
+                return (
+                  <a
+                    key={index}
+                    href={video.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group"
+                  >
+                    <Card className="overflow-hidden transition-all hover:shadow-elegant hover:border-accent/50 cursor-pointer">
+                      <div className="aspect-video relative overflow-hidden bg-muted">
+                        <img 
+                          src={thumbnailUrl} 
+                          alt={video.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                        <div className="absolute inset-0 bg-background/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center">
+                            <Youtube className="w-8 h-8 text-accent-foreground" />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="p-4">
+                        <h3 className="font-semibold text-sm group-hover:text-accent transition-colors">
+                          {video.title}
+                        </h3>
+                      </div>
+                    </Card>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Quiz Section */}
         <div className="mb-8">

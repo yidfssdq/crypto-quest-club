@@ -123,6 +123,34 @@ Ne jamais moyenner à la baisse (acheter plus quand ça descend pour "récupére
           'Laisser le stop-loss se déclencher comme prévu'
         ],
         correctAnswer: 2
+      },
+      {
+        question: 'Avec un capital de 2000€, quel montant maximum devrais-tu risquer par trade selon la règle des 2% ?',
+        options: [
+          '20€',
+          '40€',
+          '100€'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Pourquoi est-il important de définir son stop-loss AVANT d\'entrer en position ?',
+        options: [
+          'Pour augmenter ses gains potentiels',
+          'Pour éviter les décisions émotionnelles en cas de perte',
+          'Pour payer moins de frais'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Risk Management : La clé du trading rentable',
+        url: 'https://www.youtube.com/watch?v=j3gUE6pqr2Q'
+      },
+      {
+        title: 'Comment calculer la taille de position idéale',
+        url: 'https://www.youtube.com/watch?v=l6vEg49wGRo'
       }
     ]
   },
@@ -183,6 +211,34 @@ Les marchés évoluent. Ce qui fonctionnait hier peut ne plus fonctionner demain
           'Le manque d\'Internet'
         ],
         correctAnswer: 1
+      },
+      {
+        question: 'Que doit contenir un journal de trading ?',
+        options: [
+          'Uniquement les trades gagnants',
+          'Tous les trades avec entrée, sortie, raison et émotions',
+          'Seulement le résultat final du mois'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Pourquoi ne faut-il jamais trader avec de l\'argent dont on a besoin ?',
+        options: [
+          'Cela crée un stress qui conduit à de mauvaises décisions',
+          'C\'est illégal',
+          'Les plateformes l\'interdisent'
+        ],
+        correctAnswer: 0
+      }
+    ],
+    videos: [
+      {
+        title: 'Les règles d\'or pour réussir en trading',
+        url: 'https://www.youtube.com/watch?v=XsKRhPswdJM'
+      },
+      {
+        title: 'Trading Psychology : Contrôler ses émotions',
+        url: 'https://www.youtube.com/watch?v=jqTv3z-5EIw'
       }
     ]
   },
@@ -243,6 +299,34 @@ Demande-toi : combien de temps puis-je consacrer au trading chaque jour ? Quelle
           'Il double ses positions'
         ],
         correctAnswer: 1
+      },
+      {
+        question: 'Combien de temps un Position Trader garde-t-il ses positions ?',
+        options: [
+          'Quelques minutes',
+          'Une seule journée',
+          'Des mois voire des années'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Quel type de trading nécessite des compétences en programmation ?',
+        options: [
+          'Day Trading',
+          'Trading Algorithmique',
+          'Swing Trading'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Quel type de trader es-tu ?',
+        url: 'https://www.youtube.com/watch?v=J2TZXHfN_Sk'
+      },
+      {
+        title: 'Scalping vs Day Trading vs Swing Trading',
+        url: 'https://www.youtube.com/watch?v=H0WSZDZdW1M'
       }
     ]
   },
@@ -319,6 +403,43 @@ En mode Cross, tout ton capital peut être utilisé pour maintenir la position. 
           'Full Margin'
         ],
         correctAnswer: 1
+      },
+      {
+        question: 'Quel niveau de leverage est recommandé pour un débutant ?',
+        options: [
+          'x50 ou x100 pour maximiser les gains',
+          'x10 minimum',
+          'Aucun leverage, ou maximum x2-x3'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Que se passe-t-il lors d\'une liquidation ?',
+        options: [
+          'Tu gagnes un bonus',
+          'L\'exchange ferme ta position et tu perds ton capital investi',
+          'Ta position est automatiquement doublée'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quelle est la différence entre Cross Margin et Isolated Margin ?',
+        options: [
+          'En Cross tout le capital peut être utilisé, en Isolated seul le capital alloué est à risque',
+          'Cross est plus sûr qu\'Isolated',
+          'Il n\'y a aucune différence'
+        ],
+        correctAnswer: 0
+      }
+    ],
+    videos: [
+      {
+        title: 'Comprendre le Leverage en trading crypto',
+        url: 'https://www.youtube.com/watch?v=8N8QjRcj5T4'
+      },
+      {
+        title: 'Les dangers du Leverage expliqués',
+        url: 'https://www.youtube.com/watch?v=UCSmJYYeW4c'
       }
     ]
   },
@@ -393,6 +514,34 @@ Avoir un plan est une chose, le suivre en est une autre. La discipline est ce qu
           'L\'oublier et trader à l\'instinct'
         ],
         correctAnswer: 1
+      },
+      {
+        question: 'Dans un plan de trading, pourquoi définir des horaires spécifiques ?',
+        options: [
+          'Pour avoir une routine et éviter les périodes de faible liquidité',
+          'Pour trader 24h/24',
+          'Ce n\'est pas important'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Quel type d\'objectif est le plus approprié dans un plan de trading ?',
+        options: [
+          'Devenir millionnaire en un mois',
+          'Viser 5% de gain mensuel de façon mesurable',
+          'Trader autant que possible'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Comment créer son plan de trading',
+        url: 'https://www.youtube.com/watch?v=WTdK7dMPAJs'
+      },
+      {
+        title: 'Le plan de trading parfait',
+        url: 'https://www.youtube.com/watch?v=EKm8C2NdZHY'
       }
     ]
   },
@@ -463,6 +612,43 @@ Le paramètre standard est RSI(14), c'est-à-dire calculé sur 14 périodes. Tu 
           'RSI(50)'
         ],
         correctAnswer: 1
+      },
+      {
+        question: 'Quelle stratégie RSI fonctionne mieux dans un marché en range ?',
+        options: [
+          'Acheter uniquement quand RSI > 70',
+          'Acheter en survente (RSI < 30) et vendre en surachat (RSI > 70)',
+          'Ignorer le RSI complètement'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Pourquoi ne faut-il pas acheter uniquement parce que le RSI est < 30 ?',
+        options: [
+          'Car en forte tendance baissière le RSI peut rester bas longtemps',
+          'Car c\'est illégal',
+          'Car le RSI n\'est jamais fiable'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que signifie un RSI qui casse 50 en tendance haussière ?',
+        options: [
+          'Signal de vente immédiate',
+          'Signal de continuation de la tendance',
+          'Aucune signification'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'RSI : L\'indicateur indispensable',
+        url: 'https://www.youtube.com/watch?v=gq83mRaLAzc'
+      },
+      {
+        title: 'Stratégies RSI avancées',
+        url: 'https://www.youtube.com/watch?v=Nbg4mJqobvo'
       }
     ]
   },
@@ -543,6 +729,269 @@ Le paramètre standard est RSI(14), c'est-à-dire calculé sur 14 périodes. Tu 
           'Une stratégie de short'
         ],
         correctAnswer: 0
+      },
+      {
+        question: 'Qu\'est-ce que le FOMO ?',
+        options: [
+          'Fear Of Missing Out - peur de rater une opportunité',
+          'Un type d\'ordre',
+          'Une crypto-monnaie'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Quelle est la différence entre un Market Order et un Limit Order ?',
+        options: [
+          'Aucune différence',
+          'Market s\'exécute immédiatement, Limit à un prix spécifique',
+          'Market est moins cher'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que signifie DCA (Dollar Cost Averaging) ?',
+        options: [
+          'Acheter tout d\'un coup',
+          'Investir régulièrement la même somme',
+          'Vendre en panique'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Le vocabulaire du trading crypto',
+        url: 'https://www.youtube.com/watch?v=TlhuxpVmPWw'
+      },
+      {
+        title: 'Termes essentiels en trading',
+        url: 'https://www.youtube.com/watch?v=JR3VZbcISWo'
+      }
+    ]
+  },
+  'boll': {
+    id: 'boll',
+    title: 'Les Bandes de Bollinger',
+    category: 'technical',
+    objective: 'Comprendre et utiliser les Bandes de Bollinger pour identifier la volatilité et les opportunités de trading',
+    content: `Les Bandes de Bollinger ont été développées par John Bollinger dans les années 1980 comme un outil pour aider les traders à identifier la volatilité potentielle des prix et les zones de prix relativement élevées ou basses par rapport aux échanges précédents.
+
+Elles offrent une définition relative des notions de "haut" et de "bas" du marché et permettent d'identifier les situations de surachat ou de survente.
+
+**Qu'est-ce que c'est et ce que ça montre**
+
+Les Bandes de Bollinger se composent de trois lignes :
+
+**Bande du milieu** : une moyenne mobile simple (généralement une SMA sur 20 périodes)
+
+**Bande supérieure** : moyenne mobile + (multiplicateur × écart-type)
+
+**Bande inférieure** : moyenne mobile - (multiplicateur × écart-type)
+
+Le réglage standard utilise une période de 20 jours avec un multiplicateur de 2 écarts-types, mais cela peut être adapté selon l'actif ou l'unité de temps.
+
+Lorsque les bandes se resserrent, cela indique une période de faible volatilité (appelée "squeeze"). Lorsqu'elles s'écartent, cela signale une augmentation de la volatilité.
+
+**Comment les trader**
+
+**1. Le rebond de Bollinger (Bollinger Bounce)**
+Les prix ont tendance à rebondir sur les bandes extérieures, qui agissent comme des zones de support ou de résistance.
+Exemple : Si le prix d'une action touche la bande inférieure et remonte, cela peut être vu comme une opportunité d'achat.
+
+**2. Le Squeeze de Bollinger**
+Quand les bandes se rapprochent fortement, cela signale souvent un mouvement imminent — soit une hausse, soit une baisse.
+
+**3. "Riding the Bands" (Suivre les bandes)**
+En tendance haussière forte, le prix peut coller à la bande supérieure ; en tendance baissière, à la bande inférieure.
+Cela indique que la tendance actuelle est puissante et peut se poursuivre.
+
+**4. Les Cassures (Breakouts)**
+Une clôture au-dessus de la bande supérieure peut indiquer un possible repli, tandis qu'une clôture sous la bande inférieure peut signaler un rebond potentiel.
+
+**⚠️ Important**
+
+Il est recommandé d'utiliser les Bandes de Bollinger avec d'autres indicateurs pour confirmer les signaux. Ne trade jamais uniquement sur la base d'un seul indicateur.`,
+    quiz: [
+      {
+        question: 'De combien de lignes se composent les Bandes de Bollinger ?',
+        options: [
+          'Une seule ligne',
+          'Deux lignes',
+          'Trois lignes'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Que représente la bande du milieu ?',
+        options: [
+          'Une moyenne mobile simple',
+          'Le prix le plus haut',
+          'Le prix le plus bas'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que signifie un "Bollinger Squeeze" ?',
+        options: [
+          'Les bandes s\'écartent fortement',
+          'Les bandes se resserrent, signalant un mouvement imminent',
+          'Le prix sort des bandes'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quel est le réglage standard des Bandes de Bollinger ?',
+        options: [
+          '10 périodes avec 1 écart-type',
+          '20 périodes avec 2 écarts-types',
+          '50 périodes avec 3 écarts-types'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que suggère un prix qui "colle" à la bande supérieure ?',
+        options: [
+          'Une tendance haussière forte',
+          'Une tendance baissière',
+          'Aucune tendance'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Pourquoi ne faut-il pas trader uniquement avec les Bandes de Bollinger ?',
+        options: [
+          'Elles sont toujours fausses',
+          'Il faut les combiner avec d\'autres indicateurs pour confirmer',
+          'Elles sont interdites'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Comprendre les Bollinger Bands',
+        url: 'https://www.youtube.com/watch?v=eHSKOLi15Fk'
+      },
+      {
+        title: 'Stratégies avec les Bandes de Bollinger',
+        url: 'https://www.youtube.com/watch?v=vfHTpKXMgXk'
+      }
+    ]
+  },
+  'stochastic': {
+    id: 'stochastic',
+    title: 'L\'Oscillateur Stochastique',
+    category: 'technical',
+    objective: 'Maîtriser l\'oscillateur stochastique pour identifier les zones de surachat et survente',
+    content: `L'Oscillateur Stochastique est un indicateur de momentum développé par George C. Lane à la fin des années 1950.
+Il compare le prix de clôture actuel d'un actif à l'ensemble de ses prix sur une période donnée.
+
+Sa sensibilité aux mouvements du marché peut être ajustée en modifiant la période ou en prenant une moyenne mobile du résultat.
+
+**Qu'est-ce que c'est et ce que ça montre**
+
+L'oscillateur mesure la position du prix actuel par rapport au plus haut et au plus bas d'une période donnée.
+
+**Formule :**
+
+%K = [(Clôture actuelle - Plus bas) / (Plus haut - Plus bas)] × 100
+
+%D = moyenne mobile à 3 jours de %K
+
+Généralement, deux lignes sont tracées :
+
+**%K** (ligne rapide)
+
+**%D** (ligne lente, moyenne de %K)
+
+Lorsque la valeur dépasse 80, l'actif est souvent considéré comme suracheté.
+En dessous de 20, il est souvent survendu.
+
+**Comment le trader**
+
+**1. Zones de surachat/survente**
+
+Au-dessus de 80 = zone de surachat possible.
+En dessous de 20 = zone de survente.
+
+**2. Divergences haussières et baissières**
+
+Une **divergence haussière** se produit lorsque le prix fait un nouveau plus bas, mais pas l'oscillateur.
+Inversement, une **divergence baissière** se produit quand le prix fait un nouveau plus haut, mais pas l'oscillateur.
+
+**3. Croisements (%K et %D)**
+
+Si la ligne %K croise au-dessus de %D → signal haussier.
+
+Si la ligne %K croise en dessous de %D → signal baissier.
+
+**⚠️ Important**
+
+Comme toujours, cet indicateur doit être utilisé avec d'autres outils techniques pour confirmer les signaux. Ne te fie jamais à un seul indicateur.`,
+    quiz: [
+      {
+        question: 'Qui a développé l\'Oscillateur Stochastique ?',
+        options: [
+          'John Bollinger',
+          'George C. Lane',
+          'Welles Wilder'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que mesure l\'oscillateur stochastique ?',
+        options: [
+          'Le volume des transactions',
+          'La position du prix actuel par rapport au plus haut et plus bas',
+          'La volatilité uniquement'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'À partir de quelle valeur considère-t-on un actif comme suracheté ?',
+        options: [
+          'Au-dessus de 50',
+          'Au-dessus de 70',
+          'Au-dessus de 80'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Que signifie %D dans le stochastique ?',
+        options: [
+          'La ligne rapide',
+          'La moyenne mobile de %K (ligne lente)',
+          'Le prix de clôture'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce qu\'une divergence haussière ?',
+        options: [
+          'Le prix fait un nouveau plus haut mais pas l\'oscillateur',
+          'Le prix fait un nouveau plus bas mais pas l\'oscillateur',
+          'L\'oscillateur est à 50'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quel signal donne un croisement de %K au-dessus de %D ?',
+        options: [
+          'Signal baissier',
+          'Signal haussier',
+          'Aucun signal'
+        ],
+        correctAnswer: 1
+      }
+    ],
+    videos: [
+      {
+        title: 'Comprendre le Stochastic Oscillator',
+        url: 'https://www.youtube.com/watch?v=SKZf7chzkG8'
+      },
+      {
+        title: 'Stratégies avec le Stochastic Oscillator',
+        url: 'https://www.youtube.com/watch?v=lCCXkLZH9oE'
       }
     ]
   }

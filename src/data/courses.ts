@@ -12,7 +12,12 @@ export const categories: Category[] = [
       'trading-plan',
       'risk-management',
       'trading-terms',
-      'dictionary'
+      'dictionary',
+      'market-psychology',
+      'trading-journal',
+      'position-sizing',
+      'market-orders',
+      'candlestick-patterns'
     ]
   },
   {
@@ -25,7 +30,15 @@ export const categories: Category[] = [
       'rsi',
       'order-block',
       'fair-value-gaps',
-      'inversion-fair-value-gaps'
+      'inversion-fair-value-gaps',
+      'macd-indicator',
+      'fibonacci-retracement',
+      'ema-sma',
+      'support-resistance',
+      'trend-lines',
+      'volume-analysis',
+      'ichimoku-cloud',
+      'divergence-trading'
     ]
   },
   {
@@ -35,7 +48,26 @@ export const categories: Category[] = [
     lessons: [
       'fundamental-analysis-basics',
       'interesting-site-links',
-      'ws-asian-london-session'
+      'ws-asian-london-session',
+      'tokenomics',
+      'on-chain-analysis',
+      'news-trading',
+      'economic-calendar',
+      'whale-watching'
+    ]
+  },
+  {
+    id: 'strategies',
+    name: 'Stratégies avancées',
+    icon: '🎯',
+    lessons: [
+      'scalping-strategy',
+      'swing-trading-strategy',
+      'breakout-trading',
+      'range-trading',
+      'arbitrage',
+      'grid-trading',
+      'dca-strategy'
     ]
   },
   {
@@ -44,7 +76,10 @@ export const categories: Category[] = [
     icon: '💰',
     lessons: [
       'memecoins-tutorial',
-      'ebook-pdf'
+      'ebook-pdf',
+      'tax-crypto',
+      'wallet-security',
+      'defi-basics'
     ]
   }
 ];
@@ -142,16 +177,6 @@ Ne jamais moyenner à la baisse (acheter plus quand ça descend pour "récupére
         ],
         correctAnswer: 1
       }
-    ],
-    videos: [
-      {
-        title: 'Risk Management : La clé du trading rentable',
-        url: 'https://www.youtube.com/watch?v=j3gUE6pqr2Q'
-      },
-      {
-        title: 'Comment calculer la taille de position idéale',
-        url: 'https://www.youtube.com/watch?v=l6vEg49wGRo'
-      }
     ]
   },
   '6-rules-of-trading': {
@@ -230,16 +255,6 @@ Les marchés évoluent. Ce qui fonctionnait hier peut ne plus fonctionner demain
         ],
         correctAnswer: 0
       }
-    ],
-    videos: [
-      {
-        title: 'Les règles d\'or pour réussir en trading',
-        url: 'https://www.youtube.com/watch?v=XsKRhPswdJM'
-      },
-      {
-        title: 'Trading Psychology : Contrôler ses émotions',
-        url: 'https://www.youtube.com/watch?v=jqTv3z-5EIw'
-      }
     ]
   },
   'type-of-trader': {
@@ -317,16 +332,6 @@ Demande-toi : combien de temps puis-je consacrer au trading chaque jour ? Quelle
           'Swing Trading'
         ],
         correctAnswer: 1
-      }
-    ],
-    videos: [
-      {
-        title: 'Quel type de trader es-tu ?',
-        url: 'https://www.youtube.com/watch?v=J2TZXHfN_Sk'
-      },
-      {
-        title: 'Scalping vs Day Trading vs Swing Trading',
-        url: 'https://www.youtube.com/watch?v=H0WSZDZdW1M'
       }
     ]
   },
@@ -431,16 +436,6 @@ En mode Cross, tout ton capital peut être utilisé pour maintenir la position. 
         ],
         correctAnswer: 0
       }
-    ],
-    videos: [
-      {
-        title: 'Comprendre le Leverage en trading crypto',
-        url: 'https://www.youtube.com/watch?v=8N8QjRcj5T4'
-      },
-      {
-        title: 'Les dangers du Leverage expliqués',
-        url: 'https://www.youtube.com/watch?v=UCSmJYYeW4c'
-      }
     ]
   },
   'trading-plan': {
@@ -532,16 +527,6 @@ Avoir un plan est une chose, le suivre en est une autre. La discipline est ce qu
           'Trader autant que possible'
         ],
         correctAnswer: 1
-      }
-    ],
-    videos: [
-      {
-        title: 'Comment créer son plan de trading',
-        url: 'https://www.youtube.com/watch?v=WTdK7dMPAJs'
-      },
-      {
-        title: 'Le plan de trading parfait',
-        url: 'https://www.youtube.com/watch?v=EKm8C2NdZHY'
       }
     ]
   },
@@ -639,16 +624,6 @@ Le paramètre standard est RSI(14), c'est-à-dire calculé sur 14 périodes. Tu 
           'Aucune signification'
         ],
         correctAnswer: 1
-      }
-    ],
-    videos: [
-      {
-        title: 'RSI : L\'indicateur indispensable',
-        url: 'https://www.youtube.com/watch?v=gq83mRaLAzc'
-      },
-      {
-        title: 'Stratégies RSI avancées',
-        url: 'https://www.youtube.com/watch?v=Nbg4mJqobvo'
       }
     ]
   },
@@ -757,16 +732,6 @@ Le paramètre standard est RSI(14), c'est-à-dire calculé sur 14 périodes. Tu 
         ],
         correctAnswer: 1
       }
-    ],
-    videos: [
-      {
-        title: 'Le vocabulaire du trading crypto',
-        url: 'https://www.youtube.com/watch?v=TlhuxpVmPWw'
-      },
-      {
-        title: 'Termes essentiels en trading',
-        url: 'https://www.youtube.com/watch?v=JR3VZbcISWo'
-      }
     ]
   },
   'boll': {
@@ -865,16 +830,6 @@ Il est recommandé d'utiliser les Bandes de Bollinger avec d'autres indicateurs 
           'Elles sont interdites'
         ],
         correctAnswer: 1
-      }
-    ],
-    videos: [
-      {
-        title: 'Comprendre les Bollinger Bands',
-        url: 'https://www.youtube.com/watch?v=eHSKOLi15Fk'
-      },
-      {
-        title: 'Stratégies avec les Bandes de Bollinger',
-        url: 'https://www.youtube.com/watch?v=vfHTpKXMgXk'
       }
     ]
   },
@@ -983,15 +938,553 @@ Comme toujours, cet indicateur doit être utilisé avec d'autres outils techniqu
         ],
         correctAnswer: 1
       }
-    ],
-    videos: [
+    ]
+  },
+  'market-psychology': {
+    id: 'market-psychology',
+    title: 'Psychologie des marchés',
+    category: 'basics',
+    objective: 'Comprendre les émotions qui influencent les marchés',
+    content: `La psychologie est souvent plus importante que l'analyse technique. Comprendre comment les émotions influencent les prix est essentiel.
+
+**Les cycles émotionnels du marché**
+
+Les marchés suivent des cycles émotionnels prévisibles : euphorie, cupidité, déni, peur, capitulation, puis espoir. Identifier où nous sommes dans ce cycle peut te donner un avantage considérable.
+
+**L'euphorie et la cupidité**
+
+Quand tout le monde parle de crypto, que les médias mainstream en parlent positivement, que ton coiffeur te donne des conseils d'investissement... c'est souvent le signe d'un sommet proche. L'euphorie pousse les prix à des niveaux irrationnels.
+
+**La peur et la capitulation**
+
+À l'inverse, quand les médias proclament "la mort du Bitcoin", que personne ne veut en entendre parler, que les prix sont au plus bas depuis des mois... c'est souvent le meilleur moment pour acheter. Warren Buffett le dit bien : "Sois craintif quand les autres sont cupides, et cupide quand les autres sont craintifs."
+
+**Le biais de confirmation**
+
+Nous avons tous tendance à chercher des informations qui confirment nos croyances existantes. Si tu es bullish sur Bitcoin, tu vas naturellement ignorer les analyses baissières et ne lire que les analyses haussières. Lutte contre ce biais en cherchant activement des opinions contraires.
+
+**L'effet de foule (FOMO)**
+
+Fear Of Missing Out - la peur de rater quelque chose. C'est ce qui pousse les gens à acheter au sommet parce que "tout le monde gagne de l'argent". Ne jamais entrer en position par FOMO. Attends toujours ton setup.
+
+**La discipline émotionnelle**
+
+Les meilleurs traders sont ceux qui peuvent rester rationnels quand tout le monde panique ou s'excite. Avoir un plan et s'y tenir, quoi qu'il arrive, est la clé du succès à long terme.`,
+    quiz: [
       {
-        title: 'Comprendre le Stochastic Oscillator',
-        url: 'https://www.youtube.com/watch?v=SKZf7chzkG8'
+        question: 'Quel est souvent le meilleur moment pour acheter selon la psychologie des marchés ?',
+        options: [
+          'Quand tout le monde est euphorique',
+          'Quand les médias proclament la mort du Bitcoin',
+          'Quand ton coiffeur te donne des conseils'
+        ],
+        correctAnswer: 1
       },
       {
-        title: 'Stratégies avec le Stochastic Oscillator',
-        url: 'https://www.youtube.com/watch?v=lCCXkLZH9oE'
+        question: 'Qu\'est-ce que le FOMO ?',
+        options: [
+          'Fear Of Missing Out',
+          'First Order Market Operation',
+          'Financial Optimization Method'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Quel est le conseil de Warren Buffett ?',
+        options: [
+          'Acheter toujours haut',
+          'Être craintif quand les autres sont cupides',
+          'Suivre toujours la foule'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce que le biais de confirmation ?',
+        options: [
+          'Chercher uniquement des infos qui confirment nos croyances',
+          'Confirmer tous ses trades par email',
+          'Vérifier deux fois ses ordres'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que faire quand tout le monde parle positivement de crypto dans les médias ?',
+        options: [
+          'Acheter immédiatement',
+          'Être prudent, c\'est souvent signe d\'un sommet',
+          'Vendre tout'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'trading-journal': {
+    id: 'trading-journal',
+    title: 'Tenir un journal de trading',
+    category: 'basics',
+    objective: 'Apprendre à documenter et analyser ses trades',
+    content: `Un journal de trading est ton outil d'apprentissage le plus puissant. Sans lui, tu répètes les mêmes erreurs indéfiniment.
+
+**Que noter dans ton journal ?**
+
+Pour chaque trade, note :
+- Date et heure d'entrée/sortie
+- Paire tradée (BTC/USDT, ETH/USDT, etc.)
+- Direction (Long/Short)
+- Prix d'entrée et de sortie
+- Taille de position
+- Stop-loss et take-profit
+- Raison d'entrée (setup technique, signal...)
+- Émotion ressentie (confiant, stressé, FOMO...)
+- Résultat (gain/perte en € et en %)
+- Leçons apprises
+
+**L'importance de l'honnêteté**
+
+Sois brutalement honnête dans ton journal. Personne ne le lira sauf toi. Si tu as perdu par cupidité, écris-le. Si tu as ignoré ton stop-loss, note-le.
+
+**Analyse hebdomadaire**
+
+Chaque dimanche, revois tes trades de la semaine :
+- Quel est ton taux de réussite ?
+- Quels sont tes meilleurs setups ?
+- Quelles erreurs reviennent le plus souvent ?
+- Sur quelles paires es-tu le plus profitable ?
+
+**Exemple de journal simplifié**
+
+Date : 15/03/2024 10:30
+Paire : BTC/USDT
+Direction : LONG
+Entrée : 65,000$
+Stop-loss : 64,500$
+Take-profit : 66,500$
+Taille : 0.1 BTC
+Raison : Cassure de résistance + RSI sortant de survente
+Émotion : Confiant, setup clair
+Résultat : +150$ (+2.3%)
+Leçon : Bon respect du plan
+
+**Outils pour ton journal**
+
+Tu peux utiliser :
+- Un simple fichier Excel/Google Sheets
+- Une application dédiée comme Edgewonk ou TradingView
+- Un carnet papier (moins pratique pour l'analyse)
+
+**Pourquoi ça fonctionne ?**
+
+Le simple fait de noter te force à réfléchir avant d'agir. Tu ne pourras plus trader impulsivement si tu sais que tu devras l'écrire et l'analyser ensuite.`,
+    quiz: [
+      {
+        question: 'Quelle information n\'est PAS essentielle dans un journal de trading ?',
+        options: [
+          'L\'émotion ressentie',
+          'Le résultat du trade',
+          'La couleur de tes vêtements ce jour-là'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'À quelle fréquence faut-il analyser son journal ?',
+        options: [
+          'Jamais, juste le remplir suffit',
+          'Au moins une fois par semaine',
+          'Une fois par an'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Pourquoi noter l\'émotion ressentie pendant le trade ?',
+        options: [
+          'Pour identifier les patterns émotionnels qui causent des erreurs',
+          'C\'est inutile',
+          'Pour se souvenir de son humeur'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que faire si tu as fait une erreur dans un trade ?',
+        options: [
+          'Ne pas la noter pour ne pas se sentir mal',
+          'L\'écrire honnêtement pour en tirer des leçons',
+          'Effacer le trade du journal'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quel est le principal avantage d\'un journal de trading ?',
+        options: [
+          'Impressionner ses amis',
+          'Identifier ses erreurs récurrentes et ses meilleurs setups',
+          'Remplir du temps'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'position-sizing': {
+    id: 'position-sizing',
+    title: 'Calcul de la taille de position',
+    category: 'basics',
+    objective: 'Maîtriser le dimensionnement des positions',
+    content: `Savoir combien acheter est aussi important que savoir quand acheter. Une mauvaise taille de position peut ruiner même la meilleure stratégie.
+
+**La formule de base**
+
+Taille de position = (Capital × Risque%) ÷ Distance au stop-loss
+
+**Exemple pratique**
+
+Tu as 5000€ de capital et tu respectes la règle des 2% de risque maximum :
+- Risque maximum : 5000€ × 2% = 100€
+- Tu veux acheter BTC à 40,000€
+- Ton stop-loss est à 39,000€
+- Distance : 1,000€ par BTC
+
+Taille de position = 100€ ÷ 1,000€ = 0.1 BTC
+
+Tu peux donc acheter 0.1 BTC. Si le stop-loss se déclenche, tu perds exactement 100€ (2% de ton capital).
+
+**L'erreur classique du débutant**
+
+Beaucoup de débutants font l'inverse : ils décident d'acheter pour 1000€ de BTC, puis placent un stop-loss au hasard. C'est la pire approche car tu ne contrôles pas ton risque.
+
+**Position sizing avec leverage**
+
+Si tu utilises un leverage x5 :
+- Même calcul de base
+- Mais divise ta position par 5 car le leverage la multiplie
+- Avec notre exemple : 0.1 BTC ÷ 5 = 0.02 BTC avec leverage x5
+
+**Le risque adaptatif**
+
+Certains traders ajustent leur risque selon leur confiance :
+- Setup A+ : 2% de risque
+- Setup A : 1.5% de risque
+- Setup B : 1% de risque
+
+Mais JAMAIS plus de 2% même sur les meilleurs setups.
+
+**Pyramidage**
+
+Si tu veux ajouter à une position gagnante :
+- Ne jamais augmenter ton risque total au-delà de 2%
+- Remonte ton stop-loss au point d'entrée initial
+- Chaque ajout doit être plus petit que le précédent
+
+**Règle des 6%**
+
+Ne jamais avoir plus de 6% de ton capital total en risque simultanément. Si tu as déjà 3 positions ouvertes risquant 2% chacune, n'en ouvre pas de nouvelle.`,
+    quiz: [
+      {
+        question: 'Comment calculer la taille de position ?',
+        options: [
+          'Acheter autant que possible',
+          '(Capital × Risque%) ÷ Distance au stop-loss',
+          'Capital ÷ Prix de l\'actif'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Avec 10,000€ de capital, 2% de risque et un stop à 500€ de distance, quelle position prendre ?',
+        options: [
+          '200€ ÷ 500€ = 0.4 unités',
+          '10,000€ ÷ 500€ = 20 unités',
+          '2% de 10,000€ = 200 unités'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que faire si tu utilises du leverage ?',
+        options: [
+          'Augmenter la taille de position',
+          'Diviser la taille de position par le leverage',
+          'Ignorer le leverage dans le calcul'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce que la règle des 6% ?',
+        options: [
+          'Risquer 6% par trade',
+          'Ne jamais avoir plus de 6% de capital total en risque simultanément',
+          'Gagner 6% par mois'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quelle est l\'erreur classique du débutant ?',
+        options: [
+          'Calculer la position selon le risque',
+          'Décider du montant d\'abord, puis placer le stop au hasard',
+          'Utiliser un stop-loss'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'market-orders': {
+    id: 'market-orders',
+    title: 'Types d\'ordres de trading',
+    category: 'basics',
+    objective: 'Maîtriser les différents types d\'ordres',
+    content: `Connaître les différents types d'ordres et quand les utiliser est crucial pour exécuter ta stratégie efficacement.
+
+**Market Order (Ordre au marché)**
+
+Achète ou vend immédiatement au meilleur prix disponible.
+- Avantage : Exécution garantie et instantanée
+- Inconvénient : Prix non garanti, peut être moins bon que prévu
+- Quand l'utiliser : Quand tu veux entrer/sortir rapidement
+
+**Limit Order (Ordre à cours limité)**
+
+Tu fixes le prix maximum que tu veux payer (achat) ou minimum que tu veux recevoir (vente).
+- Avantage : Tu contrôles le prix d'exécution
+- Inconvénient : L'ordre peut ne jamais se remplir
+- Quand l'utiliser : Pour entrer à un prix spécifique
+
+Exemple : BTC est à 40,000€. Tu places un limit order d'achat à 39,500€. L'ordre ne s'exécutera que si le prix descend à 39,500€ ou moins.
+
+**Stop-Loss Order**
+
+Ordre qui devient un market order quand le prix atteint un certain niveau.
+- But : Limiter tes pertes
+- Attention : En forte volatilité, peut s'exécuter à un prix pire que prévu (slippage)
+
+**Stop-Limit Order**
+
+Combinaison de stop et limit. Quand le prix stop est atteint, un limit order est placé.
+- Avantage : Contrôle du prix même lors du déclenchement du stop
+- Inconvénient : Peut ne pas s'exécuter si le prix bouge trop vite
+
+**Take-Profit Order**
+
+Ferme automatiquement ta position quand le profit cible est atteint.
+- Essentiel pour sécuriser tes gains
+- Évite l'indécision émotionnelle
+
+**Trailing Stop**
+
+Stop-loss qui suit le prix. Si le prix monte, le stop monte aussi, mais ne descend jamais.
+
+Exemple : Tu achètes à 1000€ avec un trailing stop de 5%
+- Prix monte à 1100€ → Stop monte à 1045€ (1100€ - 5%)
+- Prix monte à 1200€ → Stop monte à 1140€ (1200€ - 5%)
+- Si prix redescend à 1140€ → Position fermée avec 140€ de profit
+
+**OCO (One Cancels Other)**
+
+Deux ordres liés : si l'un s'exécute, l'autre est automatiquement annulé.
+
+Exemple : Tu achètes BTC à 40,000€
+- OCO : Take-profit à 42,000€ + Stop-loss à 38,000€
+- Si l'un se déclenche, l'autre est annulé automatiquement
+
+**Conseils d'utilisation**
+
+- Pour entrer : Utilise limit orders pour avoir le meilleur prix
+- Pour sortir d'urgence : Market order
+- Pour protéger : Stop-loss obligatoire
+- Pour sécuriser profits : Take-profit ou trailing stop`,
+    quiz: [
+      {
+        question: 'Quel ordre garantit l\'exécution immédiate mais pas le prix ?',
+        options: [
+          'Limit Order',
+          'Market Order',
+          'Stop-Limit Order'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Un Limit Order d\'achat à 39,500€ s\'exécutera si le prix est à :',
+        options: [
+          '40,000€',
+          '39,000€',
+          'Jamais'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'À quoi sert un Trailing Stop ?',
+        options: [
+          'À acheter automatiquement',
+          'À suivre le prix à la hausse tout en protégeant les profits',
+          'À annuler tous les ordres'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que signifie OCO ?',
+        options: [
+          'One Cancels Other',
+          'Only Cash Orders',
+          'Open Close Operation'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Quel type d\'ordre utiliser pour entrer à un prix précis ?',
+        options: [
+          'Market Order',
+          'Limit Order',
+          'Stop-Loss'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce que le slippage ?',
+        options: [
+          'Un type d\'ordre',
+          'La différence entre le prix attendu et le prix d\'exécution réel',
+          'Un indicateur technique'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'candlestick-patterns': {
+    id: 'candlestick-patterns',
+    title: 'Patterns de chandeliers japonais',
+    category: 'basics',
+    objective: 'Reconnaître et utiliser les patterns de chandeliers',
+    content: `Les chandeliers japonais racontent l'histoire de la bataille entre acheteurs et vendeurs. Apprendre à les lire donne un avantage énorme.
+
+**Anatomie d'un chandelier**
+
+- Corps : Différence entre ouverture et clôture
+- Mèche haute : Plus haut atteint
+- Mèche basse : Plus bas atteint
+- Vert/Blanc : Clôture > Ouverture (haussier)
+- Rouge/Noir : Clôture < Ouverture (baissier)
+
+**Patterns haussiers**
+
+**1. Hammer (Marteau)**
+- Petit corps en haut
+- Longue mèche basse (2-3x le corps)
+- Apparaît après une baisse
+- Signal : Les vendeurs ont poussé bas mais les acheteurs ont repris le contrôle
+
+**2. Bullish Engulfing (Engloutissant haussier)**
+- Deux chandeliers : petit rouge puis grand vert
+- Le vert "engloutit" complètement le rouge
+- Signal très fort de retournement haussier
+
+**3. Morning Star (Étoile du matin)**
+- Trois chandeliers : grand rouge, petit (rouge ou vert), grand vert
+- Signal de fin de baisse
+
+**Patterns baissiers**
+
+**4. Shooting Star (Étoile filante)**
+- Petit corps en bas
+- Longue mèche haute
+- Apparaît après une hausse
+- Signal : Les acheteurs ont poussé haut mais les vendeurs ont repris le contrôle
+
+**5. Bearish Engulfing (Engloutissant baissier)**
+- Deux chandeliers : petit vert puis grand rouge
+- Le rouge engloutit le vert
+- Signal fort de retournement baissier
+
+**6. Evening Star (Étoile du soir)**
+- Trois chandeliers : grand vert, petit, grand rouge
+- Signal de fin de hausse
+
+**Patterns de continuation**
+
+**7. Three White Soldiers (Trois soldats blancs)**
+- Trois grands chandeliers verts consécutifs
+- Confirmation de tendance haussière forte
+
+**8. Three Black Crows (Trois corbeaux noirs)**
+- Trois grands chandeliers rouges consécutifs
+- Confirmation de tendance baissière forte
+
+**Patterns d'indécision**
+
+**9. Doji**
+- Ouverture = Clôture (pas de corps)
+- Signal d'indécision du marché
+- Important aux niveaux de support/résistance
+
+**10. Spinning Top**
+- Petit corps (peu importe la couleur)
+- Longues mèches haut et bas
+- Indécision, potentiel retournement
+
+**Règles d'utilisation**
+
+1. Ne JAMAIS trader un pattern seul
+2. Toujours confirmer avec :
+   - Niveau de support/résistance
+   - Volume (pattern plus fort si volume élevé)
+   - Indicateurs techniques (RSI, MACD...)
+3. Attendre la confirmation du chandelier suivant
+
+**Exemple de trade**
+
+BTC est en baisse depuis 3 jours. Un Hammer apparaît sur un support majeur à 38,000€. Le chandelier suivant ouvre en hausse.
+- Signal : Potentiel retournement haussier
+- Confirmation : Support + Hammer + chandelier de confirmation
+- Action : Envisager un achat avec stop sous le Hammer`,
+    quiz: [
+      {
+        question: 'Qu\'indique un Hammer après une baisse ?',
+        options: [
+          'Continuation de la baisse',
+          'Potentiel retournement haussier',
+          'Indécision'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Combien de chandeliers composent un Bullish Engulfing ?',
+        options: [
+          'Un seul',
+          'Deux',
+          'Trois'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que signifie un Doji ?',
+        options: [
+          'Forte tendance haussière',
+          'Indécision du marché',
+          'Crash imminent'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Où apparaît une Shooting Star ?',
+        options: [
+          'Après une baisse',
+          'Après une hausse',
+          'N\'importe où'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Faut-il trader un pattern de chandelier seul ?',
+        options: [
+          'Oui, c\'est suffisant',
+          'Non, toujours le confirmer avec d\'autres éléments',
+          'Seulement le lundi'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que représentent les "Three White Soldiers" ?',
+        options: [
+          'Signal baissier',
+          'Confirmation de tendance haussière forte',
+          'Indécision'
+        ],
+        correctAnswer: 1
       }
     ]
   }

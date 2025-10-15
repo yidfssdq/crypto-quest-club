@@ -8,59 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* CryptoLearn Hub - Dark Discord-inspired Theme */
-    --background: 240 10% 4%;
-    --foreground: 240 5% 96%;
+    /* CryptoLearn Hub - Enhanced Dark Theme */
+    --background: 222 47% 4%;
+    --foreground: 213 27% 94%;
 
-    --card: 240 8% 8%;
-    --card-foreground: 240 5% 96%;
+    --card: 222 47% 7%;
+    --card-foreground: 213 27% 94%;
 
-    --popover: 240 8% 8%;
-    --popover-foreground: 240 5% 96%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 213 27% 94%;
 
-    --primary: 262 83% 58%;
-    --primary-foreground: 240 5% 96%;
+    --primary: 263 70% 60%;
+    --primary-foreground: 213 27% 94%;
+    --primary-glow: 263 70% 70%;
 
-    --secondary: 217 91% 60%;
-    --secondary-foreground: 240 5% 96%;
+    --secondary: 199 89% 55%;
+    --secondary-foreground: 213 27% 94%;
 
-    --muted: 240 6% 15%;
-    --muted-foreground: 240 5% 64%;
+    --muted: 222 47% 12%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 262 83% 58%;
-    --accent-foreground: 240 5% 96%;
+    --accent: 280 65% 60%;
+    --accent-foreground: 213 27% 94%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 240 5% 96%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 213 27% 94%;
 
-    --success: 142 71% 45%;
-    --success-foreground: 240 5% 96%;
+    --success: 142 76% 36%;
+    --success-foreground: 213 27% 94%;
 
-    --border: 240 6% 15%;
-    --input: 240 6% 15%;
-    --ring: 262 83% 58%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 222 47% 11%;
+
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
+    --ring: 263 70% 60%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 240 8% 9%;
-    --sidebar-foreground: 240 5% 80%;
-    --sidebar-primary: 262 83% 58%;
-    --sidebar-primary-foreground: 240 5% 96%;
-    --sidebar-accent: 240 6% 12%;
-    --sidebar-accent-foreground: 240 5% 96%;
-    --sidebar-border: 240 6% 15%;
-    --sidebar-ring: 262 83% 58%;
+    --sidebar-background: 222 47% 6%;
+    --sidebar-foreground: 215 20% 75%;
+    --sidebar-primary: 263 70% 60%;
+    --sidebar-primary-foreground: 213 27% 94%;
+    --sidebar-accent: 222 47% 10%;
+    --sidebar-accent-foreground: 213 27% 94%;
+    --sidebar-border: 222 47% 15%;
+    --sidebar-ring: 263 70% 60%;
 
-    /* Custom gradient tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(262 83% 58%), hsl(217 91% 60%));
-    --gradient-dark: linear-gradient(180deg, hsl(240 10% 4%), hsl(240 8% 6%));
+    /* Enhanced gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%), hsl(280 65% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(199 89% 55%), hsl(263 70% 60%));
+    --gradient-dark: linear-gradient(180deg, hsl(222 47% 4%), hsl(222 47% 6%));
+    --gradient-card: linear-gradient(145deg, hsl(222 47% 7%), hsl(222 47% 9%));
+    --gradient-accent: linear-gradient(135deg, hsl(280 65% 60%), hsl(310 60% 55%));
     
-    /* Custom shadows */
-    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.3);
-    --shadow-card: 0 4px 24px hsl(240 10% 0% / 0.4);
+    /* Enhanced shadows */
+    --shadow-glow: 0 0 50px hsl(263 70% 60% / 0.4);
+    --shadow-glow-lg: 0 0 80px hsl(263 70% 60% / 0.5);
+    --shadow-card: 0 8px 32px hsl(222 47% 0% / 0.5);
+    --shadow-card-hover: 0 12px 48px hsl(222 47% 0% / 0.7);
+    --shadow-inner: inset 0 2px 4px hsl(222 47% 0% / 0.3);
     
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 }
 
@@ -96,19 +107,55 @@ All colors MUST be HSL.
     background: var(--gradient-primary);
   }
 
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
   .gradient-dark {
     background: var(--gradient-dark);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
   }
 
   .glow-primary {
     box-shadow: var(--shadow-glow);
   }
 
+  .glow-primary-lg {
+    box-shadow: var(--shadow-glow-lg);
+  }
+
   .shadow-card {
     box-shadow: var(--shadow-card);
   }
 
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .shadow-inner {
+    box-shadow: var(--shadow-inner);
+  }
+
   .transition-smooth {
     transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent;
+  }
+
+  .border-gradient {
+    border-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent))) 1;
   }
 }

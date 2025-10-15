@@ -85,6 +85,518 @@ export const categories: Category[] = [
 ];
 
 export const lessons: Record<string, Lesson> = {
+  'macd-indicator': {
+    id: 'macd-indicator',
+    title: 'Indicateur MACD - Moving Average Convergence Divergence',
+    category: 'technical',
+    objective: 'Maîtriser le MACD pour détecter les changements de tendance',
+    content: `Le MACD est l'un des indicateurs les plus populaires et puissants en analyse technique. Il combine plusieurs moyennes mobiles pour identifier les changements de momentum.
+
+**Qu'est-ce que le MACD ?**
+
+Le MACD (Moving Average Convergence Divergence) mesure la relation entre deux moyennes mobiles exponentielles (EMA). Il se compose de trois éléments :
+- La ligne MACD : différence entre l'EMA 12 et l'EMA 26
+- La ligne de signal : EMA 9 de la ligne MACD
+- L'histogramme : différence entre la ligne MACD et la ligne de signal
+
+**Comment interpréter le MACD ?**
+
+**Croisements de lignes :**
+- Quand la ligne MACD croise au-dessus de la ligne de signal = signal d'achat 📈
+- Quand la ligne MACD croise en-dessous de la ligne de signal = signal de vente 📉
+
+**Croisements avec le zéro :**
+- MACD passe au-dessus de 0 = tendance haussière se renforce
+- MACD passe en-dessous de 0 = tendance baissière se renforce
+
+**Divergences :**
+Les divergences sont des signaux très puissants :
+- Divergence haussière : le prix fait des plus bas, mais le MACD fait des plus hauts = retournement potentiel à la hausse
+- Divergence baissière : le prix fait des plus hauts, mais le MACD fait des plus bas = retournement potentiel à la baisse
+
+**L'histogramme**
+
+L'histogramme montre la force du mouvement :
+- Barres qui grandissent = momentum s'accélère
+- Barres qui rétrécissent = momentum ralentit
+- Passage du positif au négatif (ou inverse) = changement de momentum
+
+**Stratégie MACD simple**
+
+1. Attendre un croisement de la ligne MACD avec la ligne de signal
+2. Confirmer avec l'histogramme qui change de couleur
+3. Vérifier qu'il n'y a pas de divergence contre ta position
+4. Placer ton stop-loss sous le dernier support (achat) ou résistance (vente)
+
+**Limites du MACD**
+
+- Retard : étant basé sur des moyennes mobiles, le MACD est un indicateur retardé
+- Faux signaux en range : dans un marché sans tendance claire, le MACD peut donner beaucoup de faux signaux
+- Nécessite confirmation : toujours combiner avec d'autres indicateurs (RSI, volume, support/résistance)
+
+**Paramètres recommandés**
+
+Les paramètres standards (12, 26, 9) fonctionnent bien sur la plupart des timeframes. Pour le scalping, tu peux essayer (5, 13, 7) pour plus de réactivité.`,
+    quiz: [
+      {
+        question: 'De quoi est composé le MACD ?',
+        options: [
+          'Une seule moyenne mobile',
+          'La ligne MACD, la ligne de signal et l\'histogramme',
+          'Uniquement l\'histogramme'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quel signal donne un croisement de la ligne MACD au-dessus de la ligne de signal ?',
+        options: [
+          'Signal de vente',
+          'Signal de maintien',
+          'Signal d\'achat'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Qu\'est-ce qu\'une divergence baissière ?',
+        options: [
+          'Le prix fait des plus hauts mais le MACD fait des plus bas',
+          'Le prix et le MACD montent ensemble',
+          'Le prix fait des plus bas et le MACD aussi'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Que représente l\'histogramme du MACD ?',
+        options: [
+          'Le volume de transactions',
+          'La différence entre la ligne MACD et la ligne de signal',
+          'Le prix de l\'actif'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quelle est la principale limite du MACD ?',
+        options: [
+          'Il est trop complexe à comprendre',
+          'C\'est un indicateur retardé qui donne parfois de faux signaux',
+          'Il ne fonctionne que sur Bitcoin'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'fibonacci-retracement': {
+    id: 'fibonacci-retracement',
+    title: 'Retracements de Fibonacci',
+    category: 'technical',
+    objective: 'Utiliser Fibonacci pour identifier les niveaux de support et résistance clés',
+    content: `Les retracements de Fibonacci sont l'un des outils les plus utilisés en analyse technique pour identifier les niveaux où le prix pourrait rebondir ou casser.
+
+**D'où vient Fibonacci ?**
+
+Leonardo Fibonacci était un mathématicien italien qui a découvert une séquence de nombres (0, 1, 1, 2, 3, 5, 8, 13, 21...) où chaque nombre est la somme des deux précédents. Cette séquence apparaît partout dans la nature et... dans les marchés financiers.
+
+**Les niveaux de Fibonacci**
+
+Les niveaux clés utilisés en trading sont :
+- **23.6%** : retracement faible
+- **38.2%** : retracement modéré
+- **50%** : niveau psychologique (pas un vrai nombre de Fibonacci mais très utilisé)
+- **61.8%** : le "Golden Ratio" - niveau le plus important
+- **78.6%** : retracement profond
+
+**Comment tracer les Fibonacci ?**
+
+1. Identifie un mouvement significatif (swing low to swing high ou vice versa)
+2. Trace l'outil Fibonacci du point A au point B
+3. Les niveaux apparaissent automatiquement
+
+En tendance haussière : trace du bas (swing low) vers le haut (swing high)
+En tendance baissière : trace du haut (swing high) vers le bas (swing low)
+
+**Comment utiliser les Fibonacci ?**
+
+**En tendance haussière :**
+Après une montée, le prix va souvent "retracer" (redescendre) avant de repartir à la hausse. Les niveaux Fibonacci indiquent où le prix pourrait rebondir :
+- 23.6% = retracement léger, tendance très forte
+- 38.2% - 50% = zone de retracement "normale"
+- 61.8% = dernier niveau de défense avant cassure de tendance
+
+**En tendance baissière :**
+Même principe inversé. Le prix remonte un peu avant de continuer sa chute.
+
+**Stratégie de trading Fibonacci**
+
+1. Attendre une forte tendance (haussière ou baissière)
+2. Tracer les Fibonacci du point bas au point haut
+3. Attendre que le prix revienne sur un niveau Fibonacci (généralement 38.2%, 50% ou 61.8%)
+4. Chercher une confirmation (chandelier de retournement, volume, RSI oversold/overbought)
+5. Entrer en position avec stop-loss juste en-dessous/au-dessus du niveau Fibonacci
+
+**Extensions de Fibonacci**
+
+Au-delà du retracement, on utilise aussi les extensions pour identifier les objectifs de prix :
+- 127.2%
+- 161.8% (objectif classique)
+- 261.8%
+
+Ces niveaux indiquent jusqu'où le prix pourrait aller après avoir cassé le précédent high/low.
+
+**Combiner Fibonacci avec d'autres outils**
+
+Fibonacci est encore plus puissant quand tu le combines avec :
+- Support et résistance horizontaux
+- Moyennes mobiles
+- Trendlines
+- Volume
+
+Quand plusieurs indicateurs convergent sur le même niveau = probabilité élevée de réaction du prix.
+
+**Erreurs à éviter**
+
+❌ Tracer des Fibonacci sur n'importe quel mouvement : choisis des swings significatifs
+❌ Trader uniquement sur Fibonacci sans confirmation
+❌ Oublier que Fibonacci n'est pas magique : ce sont des zones, pas des prix exacts`,
+    quiz: [
+      {
+        question: 'Quel est le niveau de Fibonacci le plus important ?',
+        options: [
+          '23.6%',
+          '50%',
+          '61.8% (Golden Ratio)'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Comment trace-t-on Fibonacci en tendance haussière ?',
+        options: [
+          'Du haut vers le bas',
+          'Du bas (swing low) vers le haut (swing high)',
+          'Au hasard'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que représente un retracement de 38.2% ?',
+        options: [
+          'Le prix a baissé de 38.2% depuis le dernier high',
+          'Le prix est revenu à 38.2% du mouvement précédent',
+          'Le volume a baissé de 38.2%'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quelle extension Fibonacci est l\'objectif de prix classique ?',
+        options: [
+          '127.2%',
+          '161.8%',
+          '261.8%'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Pourquoi combiner Fibonacci avec d\'autres indicateurs ?',
+        options: [
+          'C\'est obligatoire par la loi',
+          'Pour augmenter la probabilité de succès quand plusieurs signaux convergent',
+          'Fibonacci seul ne fonctionne jamais'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'ema-sma': {
+    id: 'ema-sma',
+    title: 'Moyennes Mobiles - EMA et SMA',
+    category: 'technical',
+    objective: 'Maîtriser les moyennes mobiles pour identifier les tendances',
+    content: `Les moyennes mobiles sont les indicateurs les plus simples et les plus utilisés en trading. Elles lissent les variations de prix pour révéler la tendance.
+
+**SMA - Simple Moving Average**
+
+La SMA calcule la moyenne arithmétique des prix sur une période donnée.
+Exemple SMA 20 : moyenne des 20 dernières bougies.
+
+**EMA - Exponential Moving Average**
+
+L'EMA donne plus de poids aux prix récents. Elle réagit donc plus vite aux changements de prix que la SMA.
+
+**Quelle moyenne mobile choisir ?**
+
+- **SMA** : plus lisse, moins de faux signaux, mais plus de retard
+- **EMA** : plus réactive, détecte plus vite les changements, mais plus de faux signaux
+
+En général, les traders préfèrent l'EMA pour sa réactivité.
+
+**Périodes courantes**
+
+- **EMA 9** : court terme, pour le scalping et day trading
+- **EMA 20/21** : court-moyen terme
+- **EMA 50** : moyen terme, très populaire
+- **EMA 200** : long terme, support/résistance majeur
+
+**Comment utiliser les moyennes mobiles ?**
+
+**1. Identifier la tendance**
+- Prix au-dessus de l'EMA = tendance haussière 📈
+- Prix en-dessous de l'EMA = tendance baissière 📉
+
+Règle simple : ne trade que dans le sens de la tendance.
+
+**2. Support et résistance dynamiques**
+Les EMA agissent comme des supports/résistances qui se déplacent :
+- En tendance haussière, le prix rebondit souvent sur l'EMA 20 ou 50
+- En tendance baissière, l'EMA agit comme résistance
+
+**3. Croisements (Crossovers)**
+Les croisements entre deux moyennes mobiles donnent des signaux :
+- **Golden Cross** : EMA courte croise au-dessus d'EMA longue = signal haussier fort
+- **Death Cross** : EMA courte croise en-dessous d'EMA longue = signal baissier fort
+
+Exemple : EMA 50 croise au-dessus EMA 200 = Golden Cross = très haussier
+
+**4. Croisement Prix/EMA**
+- Prix croise au-dessus de l'EMA = signal d'achat potentiel
+- Prix croise en-dessous de l'EMA = signal de vente potentiel
+
+**Stratégies populaires**
+
+**Stratégie EMA 9/21 (court terme)**
+- Achat : EMA 9 croise au-dessus EMA 21 + prix au-dessus des deux EMA
+- Vente : EMA 9 croise en-dessous EMA 21 + prix en-dessous des deux EMA
+
+**Stratégie EMA 50/200 (moyen-long terme)**
+- Achat : Golden Cross (EMA 50 > EMA 200) + pullback sur EMA 50
+- Vente : Death Cross (EMA 50 < EMA 200)
+
+**Stratégie Triple EMA (EMA 9, 21, 55)**
+- Toutes les EMA alignées dans le même ordre = tendance forte
+- Rechercher des entrées lors des pullbacks sur EMA 21
+
+**Limites des moyennes mobiles**
+
+⚠️ **Indicateur retardé** : les moyennes mobiles se basent sur les prix passés
+⚠️ **Faux signaux en range** : dans un marché sans tendance, les croisements donnent beaucoup de faux signaux
+⚠️ **Whipsaws** : le prix peut traverser l'EMA plusieurs fois rapidement
+
+**Conseils pratiques**
+
+✅ Utilise les EMA sur des timeframes plus élevés pour des signaux plus fiables (4H, Daily)
+✅ Combine toujours avec d'autres indicateurs (RSI, volume, support/résistance)
+✅ Teste différentes périodes pour trouver celles qui fonctionnent sur tes actifs préférés
+✅ Respecte toujours la tendance donnée par l'EMA 200`,
+    quiz: [
+      {
+        question: 'Quelle est la différence entre SMA et EMA ?',
+        options: [
+          'Il n\'y a aucune différence',
+          'L\'EMA donne plus de poids aux prix récents',
+          'La SMA est plus rapide que l\'EMA'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce qu\'un Golden Cross ?',
+        options: [
+          'Une EMA courte qui croise au-dessus d\'une EMA longue - signal haussier',
+          'Une EMA courte qui croise en-dessous d\'une EMA longue',
+          'Le prix qui touche l\'EMA 200'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Comment utilise-t-on l\'EMA pour identifier la tendance ?',
+        options: [
+          'Prix au-dessus de l\'EMA = tendance haussière, en-dessous = baissière',
+          'L\'EMA ne peut pas identifier les tendances',
+          'Il faut 10 EMA pour identifier une tendance'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Quelle EMA est considérée comme un support/résistance majeur long terme ?',
+        options: [
+          'EMA 9',
+          'EMA 20',
+          'EMA 200'
+        ],
+        correctAnswer: 2
+      },
+      {
+        question: 'Quelle est la principale limite des moyennes mobiles ?',
+        options: [
+          'Elles sont trop complexes',
+          'C\'est un indicateur retardé qui donne des faux signaux en range',
+          'Elles ne fonctionnent pas sur les cryptos'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
+  'support-resistance': {
+    id: 'support-resistance',
+    title: 'Support et Résistance - Les fondations du trading',
+    category: 'technical',
+    objective: 'Identifier et utiliser les niveaux clés de support et résistance',
+    content: `Les supports et résistances sont les concepts les plus importants en analyse technique. Maîtrise-les, et tu auras déjà une longueur d'avance.
+
+**Qu'est-ce qu'un Support ?**
+
+Un support est un niveau de prix où la demande est suffisamment forte pour empêcher le prix de descendre plus bas. C'est comme un "plancher" que le prix a du mal à traverser.
+
+Psychologie : à ce niveau, les acheteurs pensent que c'est une bonne affaire et achètent massivement, ce qui fait remonter le prix.
+
+**Qu'est-ce qu'une Résistance ?**
+
+Une résistance est un niveau de prix où l'offre est suffisamment forte pour empêcher le prix de monter plus haut. C'est comme un "plafond".
+
+Psychologie : à ce niveau, les vendeurs pensent que le prix est trop élevé et vendent, ce qui fait redescendre le prix.
+
+**Comment identifier Support et Résistance ?**
+
+**1. Niveaux horizontaux**
+Regarde les zones où le prix a rebondi plusieurs fois :
+- Si le prix est remonté 2-3 fois depuis un niveau = support
+- Si le prix a chuté 2-3 fois depuis un niveau = résistance
+
+Plus un niveau a été testé et tenu, plus il est fort.
+
+**2. Anciens sommets et creux**
+- Les anciens plus hauts (swing highs) deviennent des résistances
+- Les anciens plus bas (swing lows) deviennent des supports
+
+**3. Niveaux psychologiques**
+Les nombres ronds attirent l'attention des traders :
+- Bitcoin à 50,000$ est un niveau psychologique fort
+- Ethereum à 3,000$ aussi
+- Les traders placent souvent leurs ordres à ces niveaux ronds
+
+**Support devient Résistance (et vice-versa)**
+
+C'est un concept clé : quand un support est cassé, il devient une résistance. Et quand une résistance est cassée, elle devient un support.
+
+Exemple :
+- BTC rebondit sur 40K$ 3 fois = support à 40K$
+- BTC casse 40K$ et descend à 38K$
+- BTC essaie de remonter mais bloque à 40K$ = 40K$ est maintenant une résistance
+
+**Zones vs Lignes**
+
+❌ Erreur fréquente : penser que support/résistance sont des lignes précises
+✅ Réalité : ce sont des ZONES
+
+Ne cherche pas le niveau exact au centime près. Considère plutôt une zone de 1-2% autour du niveau.
+
+**Comment trader Support et Résistance ?**
+
+**Stratégie 1 : Rebond sur Support**
+1. Identifier un support fort (testé 2-3 fois minimum)
+2. Attendre que le prix approche du support
+3. Chercher une confirmation (chandelier de retournement, divergence RSI, volume)
+4. Acheter avec stop-loss juste en-dessous du support
+
+**Stratégie 2 : Cassure de Résistance (Breakout)**
+1. Identifier une résistance forte
+2. Attendre que le prix casse la résistance avec un fort volume
+3. Attendre un retest de la résistance (devenue support)
+4. Acheter lors du retest avec stop-loss sous le nouveau support
+
+**Stratégie 3 : Vente à la Résistance**
+1. Prix approche d'une résistance en tendance baissière ou range
+2. Chercher des signes de rejet (mèche haute, volume vendeur)
+3. Shorter avec stop-loss au-dessus de la résistance
+
+**Confirmations importantes**
+
+Ne trade jamais uniquement sur support/résistance. Cherche des confirmations :
+- **Volume** : une cassure avec fort volume est plus fiable
+- **Chandeliers** : patterns de retournement (doji, marteau, étoile filante)
+- **Indicateurs** : RSI, MACD qui confirment le mouvement
+
+**Types de support/résistance**
+
+**Statiques :**
+- Lignes horizontales
+- Niveaux psychologiques
+
+**Dynamiques :**
+- Moyennes mobiles (EMA 50, 200)
+- Trendlines (lignes de tendance)
+- Bollinger Bands
+
+**Fausses cassures (Fake Breakout)**
+
+Attention aux pièges ! Parfois, le prix casse un niveau puis revient immédiatement = fausse cassure.
+
+Comment les éviter :
+- Attendre une bougie de clôture au-dessus/en-dessous du niveau
+- Vérifier le volume (faible volume = méfiance)
+- Attendre un retest avant d'entrer
+
+**Force d'un Support/Résistance**
+
+Un niveau est plus fort quand :
+- Il a été testé plusieurs fois
+- Il correspond à un niveau psychologique rond
+- Il aligne plusieurs timeframes (support 4H + Daily)
+- Il coïncide avec Fibonacci, EMA ou autre indicateur`,
+    quiz: [
+      {
+        question: 'Qu\'est-ce qu\'un support ?',
+        options: [
+          'Un niveau où le prix monte toujours',
+          'Un niveau où la demande empêche le prix de descendre plus bas',
+          'Un indicateur technique'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Que se passe-t-il quand un support est cassé ?',
+        options: [
+          'Il disparaît pour toujours',
+          'Il devient une résistance',
+          'Il devient plus fort'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce qu\'un niveau psychologique ?',
+        options: [
+          'Un niveau qui n\'existe que dans la tête',
+          'Un nombre rond (ex: 50,000$) qui attire l\'attention des traders',
+          'Un support émotionnel'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Quelle confirmation est importante pour valider une cassure ?',
+        options: [
+          'Un fort volume',
+          'La couleur de la bougie',
+          'L\'heure de la journée'
+        ],
+        correctAnswer: 0
+      },
+      {
+        question: 'Support et résistance sont-ils des lignes ou des zones ?',
+        options: [
+          'Des lignes précises au centime près',
+          'Des zones de 1-2% environ',
+          'Ça n\'a aucune importance'
+        ],
+        correctAnswer: 1
+      },
+      {
+        question: 'Qu\'est-ce qu\'une fausse cassure (fake breakout) ?',
+        options: [
+          'Une cassure qui n\'est pas réelle',
+          'Le prix casse un niveau puis revient immédiatement',
+          'Une cassure pendant les weekends'
+        ],
+        correctAnswer: 1
+      }
+    ]
+  },
   'risk-management': {
     id: 'risk-management',
     title: 'Gestion du risque dans le trading',

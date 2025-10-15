@@ -75,8 +75,8 @@ export default function Home() {
                 basics: BookOpen,
                 technical: TrendingUp,
                 fundamental: Brain,
-                misc: Coins,
-                advanced: TrendingUp
+                strategies: TrendingUp,
+                misc: Coins
               };
               const Icon = icons[category.id as keyof typeof icons];
 

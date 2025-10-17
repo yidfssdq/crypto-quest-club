@@ -1,13 +1,20 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ProgressBar } from '@/components/ProgressBar';
 import { Card } from '@/components/ui/card';
 import { BookOpen, TrendingUp, Brain, Coins } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { categories } from '@/data/courses';
+import { GeminiChat } from '@/components/GeminiChat';
+import { OpenChatButton } from '@/components/OpenChatButton';
 
 export default function Home() {
+  const [chatOpen, setChatOpen] = useState(false);
+
   return (
-    <div className="min-h-screen">
+    <>
+      <GeminiChat isOpen={chatOpen} onOpenChange={setChatOpen} />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden gradient-dark border-b border-border">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,hsl(263_70%_60%/0.15),transparent_50%)]" />
@@ -31,15 +38,12 @@ export default function Home() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/lesson/6-rules-of-trading">
-              <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-10 py-6 hover:scale-105 transition-bounce font-bold">
+              <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-10 py-6 font-bold">
                 <BookOpen className="w-6 h-6 mr-2" />
                 Commencer gratuitement
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="text-lg px-10 py-6 border-primary/30 hover:bg-primary/10 hover:border-primary transition-smooth">
-              <Brain className="w-6 h-6 mr-2" />
-              Découvrir l'IA
-            </Button>
+            <OpenChatButton onClick={() => setChatOpen(true)} />
           </div>
 
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
@@ -81,23 +85,19 @@ export default function Home() {
               const Icon = icons[category.id as keyof typeof icons];
 
               return (
-                <Card
-                  key={category.id}
-                  className="p-6 gradient-card border border-border/50 shadow-card hover:shadow-card-hover transition-bounce hover:border-primary/50 hover:scale-105 group cursor-pointer relative overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-smooth" />
-                  <Link to={`/lesson/${category.lessons[0]}`} className="relative z-10 block">
-                    <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 group-hover:glow-primary transition-bounce group-hover:scale-110 shadow-inner">
+                <Link key={category.id} to={`/lesson/${category.lessons[0]}`}>
+                  <Card className="p-6 gradient-card border border-border/50 shadow-card cursor-pointer relative overflow-hidden">
+                    <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-inner">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2 group-hover:text-gradient transition-smooth">
+                    <h3 className="font-bold text-lg mb-2">
                       {category.icon} {category.name}
                     </h3>
-                    <p className="text-sm text-muted-foreground group-hover:text-foreground/80 transition-smooth">
+                    <p className="text-sm text-muted-foreground">
                       {category.lessons.length} cours • Interactif
                     </p>
-                  </Link>
-                </Card>
+                  </Card>
+                </Link>
               );
             })}
           </div>
@@ -105,39 +105,39 @@ export default function Home() {
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
-          <Card className="p-8 gradient-card border border-primary/20 shadow-card hover:shadow-card-hover transition-bounce hover:scale-105 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-smooth" />
+          <Card className="p-8 gradient-card border border-primary/20 shadow-card group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 glow-primary">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-smooth">📚 Cours structurés</h3>
+              <h3 className="font-bold text-lg mb-2">📚 Cours structurés</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 50+ leçons complètes du niveau débutant aux stratégies avancées avec explications détaillées
               </p>
             </div>
           </Card>
 
-          <Card className="p-8 gradient-card border border-secondary/20 shadow-card hover:shadow-card-hover transition-bounce hover:scale-105 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl group-hover:bg-secondary/20 transition-smooth" />
+          <Card className="p-8 gradient-card border border-secondary/20 shadow-card group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/10 rounded-full blur-3xl" />
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-xl gradient-secondary flex items-center justify-center mb-4 shadow-glow">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-secondary transition-smooth">✅ Quiz interactifs</h3>
+              <h3 className="font-bold text-lg mb-2">✅ Quiz interactifs</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Valide tes connaissances avec 200+ questions de quiz à chaque fin de leçon
               </p>
             </div>
           </Card>
 
-          <Card className="p-8 gradient-card border border-accent/20 shadow-card hover:shadow-card-hover transition-bounce hover:scale-105 group relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/20 transition-smooth" />
+          <Card className="p-8 gradient-card border border-accent/20 shadow-card group relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-3xl" />
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-xl gradient-accent flex items-center justify-center mb-4 shadow-glow">
                 <Brain className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-smooth">🤖 Assistant IA</h3>
+              <h3 className="font-bold text-lg mb-2">🤖 Assistant IA</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Gemini IA spécialisé en crypto disponible 24/7 pour répondre à tes questions
               </p>
@@ -156,7 +156,7 @@ export default function Home() {
               Rejoins la plateforme et commence ton apprentissage dès maintenant. C'est 100% gratuit et sans engagement.
             </p>
             <Link to="/lesson/6-rules-of-trading">
-              <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-12 py-6 hover:scale-105 transition-bounce font-bold">
+              <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-12 py-6 font-bold">
                 <BookOpen className="w-6 h-6 mr-2" />
                 Débuter mon parcours
               </Button>
@@ -177,7 +177,7 @@ export default function Home() {
                 href="https://coinmarketcap.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-smooth"
+                className="text-muted-foreground"
               >
                 CoinMarketCap
               </a>
@@ -185,7 +185,7 @@ export default function Home() {
                 href="https://www.tradingview.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-smooth"
+                className="text-muted-foreground"
               >
                 TradingView
               </a>
@@ -193,7 +193,7 @@ export default function Home() {
                 href="https://academy.binance.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-smooth"
+                className="text-muted-foreground"
               >
                 Binance Academy
               </a>
@@ -202,5 +202,6 @@ export default function Home() {
         </div>
       </footer>
     </div>
+    </>
   );
 }

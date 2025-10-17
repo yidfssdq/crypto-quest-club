@@ -11,8 +11,22 @@ interface Message {
   content: string;
 }
 
-export function GeminiChat() {
-  const [isOpen, setIsOpen] = useState(false);
+interface GeminiChatProps {
+  isOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+export function GeminiChat({ isOpen: externalIsOpen, onOpenChange }: GeminiChatProps = {}) {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  
+  const setIsOpen = (open: boolean) => {
+    if (onOpenChange) {
+      onOpenChange(open);
+    } else {
+      setInternalIsOpen(open);
+    }
+  };
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
@@ -176,7 +190,28 @@ export function GeminiChat() {
                     : 'bg-muted'
                 }`}
               >
-                <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                <div className="text-sm prose prose-invert max-w-none">
+                  {msg.role === 'assistant' ? (
+                    msg.content.split('\n').map((line, i) => {
+                      // Remove markdown formatting
+                      const cleanLine = line
+                        .replace(/^#+\s/, '') // Remove # headers
+                        .replace(/\*\*/g, '') // Remove bold **
+                        .replace(/\*/g, '')   // Remove italic *
+                        .replace(/`/g, '');   // Remove code `
+                      
+                      if (!cleanLine.trim()) return <br key={i} />;
+                      
+                      return (
+                        <p key={i} className="mb-2 last:mb-0">
+                          {cleanLine}
+                        </p>
+                      );
+                    })
+                  ) : (
+                    <p className="whitespace-pre-wrap">{msg.content}</p>
+                  )}
+                </div>
               </div>
             </div>
           ))}

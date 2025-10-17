@@ -8,6 +8,8 @@ import { GeminiChat } from "./components/GeminiChat";
 import Home from "./pages/Home";
 import LessonPage from "./pages/LessonPage";
 import NotFound from "./pages/NotFound";
+import AuthPage from "./pages/AuthPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient();
 
@@ -19,9 +21,11 @@ const App = () => (
       <GeminiChat />
       <BrowserRouter>
         <Routes>
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="lesson/:lessonId" element={<LessonPage />} />
+            <Route path="profile" element={<ProfilePage />} />
           </Route>
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

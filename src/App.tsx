@@ -12,24 +12,26 @@ import ProfilePage from "./pages/ProfilePage";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <Toaster />
-    <Sonner />
-    <GeminiChat />
-    <BrowserRouter>
-      <Routes>
-        <Route path="/auth" element={<AuthPage />} />
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="lesson/:lessonId" element={<LessonPage />} />
-          <Route path="profile" element={<ProfilePage />} />
-        </Route>
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Toaster />
+      <Sonner />
+      <GeminiChat />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="lesson/:lessonId" element={<LessonPage />} />
+            <Route path="profile" element={<ProfilePage />} />
+          </Route>
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+}
 
 export default App;

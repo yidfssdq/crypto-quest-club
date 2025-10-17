@@ -1,17 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
-import { getLessonById } from '@/data/courses';
 import { Quiz } from '@/components/Quiz';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { ArrowLeft, Target, CheckCircle, Youtube } from 'lucide-react';
+import { ArrowLeft, Target, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { markLessonComplete, isLessonCompleted } from '@/utils/progressSync';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getLessonById as getTranslatedLesson } from '@/data/translations';
+import { getLessonById as getFrenchLesson } from '@/data/courses';
 
 export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const { toast } = useToast();
+  const { language } = useLanguage();
   const [isCompleted, setIsCompleted] = useState(false);
   
   useEffect(() => {
@@ -28,7 +31,7 @@ export default function LessonPage() {
     return <Navigate to="/" />;
   }
 
-  const lesson = getLessonById(lessonId);
+  const lesson = getTranslatedLesson(lessonId, language) || getFrenchLesson(lessonId);
   
   if (!lesson) {
     return (

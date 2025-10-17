@@ -1,5 +1,6 @@
 import { categories as frCategories, lessons as frLessons } from './courses';
-import { Category } from '@/types/course';
+import { Category, Lesson } from '@/types/course';
+import { enLessons } from './englishLessons';
 
 const enCategories: Category[] = [
   {
@@ -38,8 +39,9 @@ export function getCategories(language: 'fr' | 'en'): Category[] {
   return language === 'fr' ? frCategories : enCategories;
 }
 
-export function getLessons(language: 'fr' | 'en') {
-  // For now, lessons content remains in French
-  // You can extend this to translate lesson content as well
-  return frLessons;
+export function getLessonById(id: string, language: 'fr' | 'en'): Lesson | undefined {
+  if (language === 'en' && enLessons[id]) {
+    return enLessons[id];
+  }
+  return frLessons[id];
 }

@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { BookOpen, CheckCircle, Lock, User, LogOut } from 'lucide-react';
-import { categories } from '@/data/courses';
 import { isLessonCompleted } from '@/utils/progressSync';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { ChevronDown } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getCategories } from '@/data/translations';
 
 interface UserProfile {
   username: string;
@@ -15,9 +18,18 @@ interface UserProfile {
 
 export function Sidebar() {
   const location = useLocation();
+  const { language } = useLanguage();
+  const categories = getCategories(language);
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [completedLessons, setCompletedLessons] = useState<string[]>([]);
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
+    basics: true,
+    technical: false,
+    fundamental: false,
+    strategies: false,
+    misc: false
+  });
 
   useEffect(() => {
     checkUser();
@@ -131,43 +143,62 @@ export function Sidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className="p-4 space-y-6">
-        {categories.map((category) => (
-          <div key={category.id}>
-            <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2 px-2">
-              {category.icon} {category.name}
-            </h3>
-            <ul className="space-y-1">
-              {category.lessons.map((lessonId) => {
-                const isCompleted = completedLessons.includes(lessonId);
-                const isActive = location.pathname === `/lesson/${lessonId}`;
-                
-                return (
-                  <li key={lessonId}>
-                    <NavLink
-                      to={`/lesson/${lessonId}`}
-                      className={cn(
-                        "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-smooth",
-                        isActive
-                          ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
-                          : "text-sidebar-foreground hover:bg-sidebar-accent/50"
-                      )}
-                    >
-                      {isCompleted ? (
-                        <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
-                      ) : (
-                        <Lock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                      )}
-                      <span className="truncate capitalize">
-                        {lessonId.replace(/-/g, ' ')}
-                      </span>
-                    </NavLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+      <nav className="p-4 space-y-2">
+        {categories.map((category) => {
+          const hasActiveLesson = category.lessons.some(
+            lessonId => location.pathname === `/lesson/${lessonId}`
+          );
+          
+          return (
+            <Collapsible
+              key={category.id}
+              open={openCategories[category.id] || hasActiveLesson}
+              onOpenChange={(open) => setOpenCategories(prev => ({ ...prev, [category.id]: open }))}
+            >
+              <CollapsibleTrigger className="flex items-center justify-between w-full px-3 py-2 text-sm font-semibold text-sidebar-foreground hover:bg-sidebar-accent/50 rounded-lg transition-smooth">
+                <span className="flex items-center gap-2">
+                  <span>{category.icon}</span>
+                  <span>{category.name}</span>
+                </span>
+                <ChevronDown className={cn(
+                  "w-4 h-4 transition-transform",
+                  (openCategories[category.id] || hasActiveLesson) && "rotate-180"
+                )} />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="mt-1">
+                <ul className="space-y-1 ml-2">
+                  {category.lessons.map((lessonId) => {
+                    const isCompleted = completedLessons.includes(lessonId);
+                    const isActive = location.pathname === `/lesson/${lessonId}`;
+                    
+                    return (
+                      <li key={lessonId}>
+                        <NavLink
+                          to={`/lesson/${lessonId}`}
+                          className={cn(
+                            "flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-smooth",
+                            isActive
+                              ? "bg-sidebar-accent text-sidebar-accent-foreground font-medium"
+                              : "text-sidebar-foreground hover:bg-sidebar-accent/50"
+                          )}
+                        >
+                          {isCompleted ? (
+                            <CheckCircle className="w-4 h-4 text-success flex-shrink-0" />
+                          ) : (
+                            <Lock className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                          )}
+                          <span className="truncate capitalize">
+                            {lessonId.replace(/-/g, ' ')}
+                          </span>
+                        </NavLink>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </CollapsibleContent>
+            </Collapsible>
+          );
+        })}
       </nav>
     </aside>
   );

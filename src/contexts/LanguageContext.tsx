@@ -73,6 +73,19 @@ const translations: Record<Language, Record<string, string>> = {
     'profile.error': 'Erreur lors de la mise à jour',
     'profile.passwordError': 'Les mots de passe ne correspondent pas',
     'profile.passwordShort': 'Le mot de passe doit contenir au moins 6 caractères',
+    'profile.logout': 'Déconnexion',
+    
+    // Quiz
+    'quiz.congrats': '🎉 Bravo !',
+    'quiz.keepLearning': '📚 Continue d\'apprendre',
+    'quiz.score': 'Tu as obtenu {score}/{total} bonnes réponses ({percentage}%)',
+    'quiz.passed': '✅ Leçon validée ! Tu peux passer à la suivante.',
+    'quiz.failed': 'Il te faut au moins 70% pour valider cette leçon.',
+    'quiz.retry': 'Refaire le quiz',
+    'quiz.next': 'Leçon suivante',
+    'quiz.question': 'Question {current}/{total}',
+    'quiz.nextBtn': 'Suivant',
+    'quiz.finish': 'Terminer',
   },
   en: {
     // Home page
@@ -136,6 +149,19 @@ const translations: Record<Language, Record<string, string>> = {
     'profile.error': 'Error updating profile',
     'profile.passwordError': 'Passwords do not match',
     'profile.passwordShort': 'Password must be at least 6 characters',
+    'profile.logout': 'Logout',
+    
+    // Quiz
+    'quiz.congrats': '🎉 Congratulations!',
+    'quiz.keepLearning': '📚 Keep learning',
+    'quiz.score': 'You got {score}/{total} correct answers ({percentage}%)',
+    'quiz.passed': '✅ Lesson validated! You can move to the next one.',
+    'quiz.failed': 'You need at least 70% to validate this lesson.',
+    'quiz.retry': 'Retry quiz',
+    'quiz.next': 'Next lesson',
+    'quiz.question': 'Question {current}/{total}',
+    'quiz.nextBtn': 'Next',
+    'quiz.finish': 'Finish',
   },
 };
 

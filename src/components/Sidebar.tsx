@@ -18,7 +18,7 @@ interface UserProfile {
 
 export function Sidebar() {
   const location = useLocation();
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const categories = getCategories(language);
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
@@ -81,7 +81,7 @@ export function Sidebar() {
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
-    toast.success('Déconnecté avec succès');
+    toast.success(t('profile.logout'));
   };
 
   return (
@@ -123,7 +123,7 @@ export function Sidebar() {
               className="w-full"
             >
               <LogOut className="w-4 h-4 mr-2" />
-              Déconnexion
+              {t('profile.logout')}
             </Button>
           </div>
         ) : (

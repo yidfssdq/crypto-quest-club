@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { CheckCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface QuizProps {
   questions: QuizQuestion[];
@@ -12,6 +13,7 @@ interface QuizProps {
 }
 
 export function Quiz({ questions, onComplete, lessonId }: QuizProps) {
+  const { t } = useLanguage();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
   const [showResult, setShowResult] = useState(false);
@@ -75,29 +77,32 @@ export function Quiz({ questions, onComplete, lessonId }: QuizProps) {
           
           <div>
             <h3 className="text-2xl font-bold mb-2">
-              {passed ? '🎉 Bravo !' : '📚 Continue d\'apprendre'}
+              {passed ? t('quiz.congrats') : t('quiz.keepLearning')}
             </h3>
             <p className="text-muted-foreground mb-4">
-              Tu as obtenu {score}/{questions.length} bonnes réponses ({percentage}%)
+              {t('quiz.score')
+                .replace('{score}', score.toString())
+                .replace('{total}', questions.length.toString())
+                .replace('{percentage}', percentage.toString())}
             </p>
             {passed ? (
               <p className="text-success font-medium">
-                ✅ Leçon validée ! Tu peux passer à la suivante.
+                {t('quiz.passed')}
               </p>
             ) : (
               <p className="text-destructive">
-                Il te faut au moins 70% pour valider cette leçon.
+                {t('quiz.failed')}
               </p>
             )}
           </div>
 
           <div className="flex gap-3 justify-center">
             <Button onClick={resetQuiz} variant="outline">
-              Refaire le quiz
+              {t('quiz.retry')}
             </Button>
             {passed && (
               <Button onClick={() => window.scrollTo(0, 0)} className="gradient-primary">
-                Leçon suivante
+                {t('quiz.next')}
               </Button>
             )}
           </div>
@@ -114,7 +119,9 @@ export function Quiz({ questions, onComplete, lessonId }: QuizProps) {
       {/* Progress */}
       <div>
         <div className="flex justify-between text-sm text-muted-foreground mb-2">
-          <span>Question {currentQuestion + 1}/{questions.length}</span>
+          <span>{t('quiz.question')
+            .replace('{current}', (currentQuestion + 1).toString())
+            .replace('{total}', questions.length.toString())}</span>
           <span>{Math.round(progress)}%</span>
         </div>
         <div className="h-2 bg-muted rounded-full overflow-hidden">
@@ -165,7 +172,7 @@ export function Quiz({ questions, onComplete, lessonId }: QuizProps) {
           disabled={selectedAnswer === null}
           className="gradient-primary"
         >
-          {currentQuestion < questions.length - 1 ? 'Suivant' : 'Terminer'}
+          {currentQuestion < questions.length - 1 ? t('quiz.nextBtn') : t('quiz.finish')}
         </Button>
       </div>
     </Card>

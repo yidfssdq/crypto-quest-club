@@ -4,12 +4,15 @@ import { ProgressBar } from '@/components/ProgressBar';
 import { Card } from '@/components/ui/card';
 import { BookOpen, TrendingUp, Brain, Coins } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { categories } from '@/data/courses';
 import { GeminiChat } from '@/components/GeminiChat';
 import { OpenChatButton } from '@/components/OpenChatButton';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getCategories } from '@/data/translations';
 
 export default function Home() {
   const [chatOpen, setChatOpen] = useState(false);
+  const { language, t } = useLanguage();
+  const categories = getCategories(language);
 
   return (
     <>
@@ -24,23 +27,21 @@ export default function Home() {
         <div className="relative max-w-5xl mx-auto px-6 py-24 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-8 transition-bounce hover:scale-105">
             <span className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-glow" />
-            <span className="text-sm text-primary font-semibold tracking-wide">🚀 Plateforme éducative crypto</span>
+            <span className="text-sm text-primary font-semibold tracking-wide">{t('hero.badge')}</span>
           </div>
           
-          <h1 className="text-6xl md:text-7xl font-black mb-6 text-gradient leading-tight">
-            Maîtrise le trading crypto<br />comme un pro
-          </h1>
+          <h1 className="text-6xl md:text-7xl font-black mb-6 text-gradient leading-tight" dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed">
-            Cours détaillés • Quiz interactifs • IA assistant • Suivi de progression<br/>
-            <span className="text-secondary font-semibold">Apprends à ton rythme, entre amis 🎯</span>
+            {t('hero.subtitle')}<br/>
+            <span className="text-secondary font-semibold">{t('hero.subtitle2')}</span>
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link to="/lesson/6-rules-of-trading">
               <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-10 py-6 font-bold">
                 <BookOpen className="w-6 h-6 mr-2" />
-                Commencer gratuitement
+                {t('hero.cta')}
               </Button>
             </Link>
             <OpenChatButton onClick={() => setChatOpen(true)} />
@@ -48,16 +49,16 @@ export default function Home() {
 
           <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full gradient-primary flex items-center justify-center text-white font-bold">50+</div>
-              <span>Leçons complètes</span>
+              <div className="w-12 h-12 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-sm">50+</div>
+              <span>{t('hero.lessons')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full gradient-secondary flex items-center justify-center text-white font-bold">200+</div>
-              <span>Quiz interactifs</span>
+              <div className="w-12 h-12 rounded-full gradient-secondary flex items-center justify-center text-white font-bold text-sm">200+</div>
+              <span>{t('hero.quizzes')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full gradient-accent flex items-center justify-center text-white font-bold">24/7</div>
-              <span>Assistant IA</span>
+              <div className="w-12 h-12 rounded-full gradient-accent flex items-center justify-center text-white font-bold text-sm">24/7</div>
+              <span>{t('hero.assistant')}</span>
             </div>
           </div>
         </div>
@@ -66,13 +67,13 @@ export default function Home() {
       <div className="max-w-6xl mx-auto px-6 py-12">
         {/* Progress Section */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Tes Statistiques</h2>
+          <h2 className="text-2xl font-bold mb-6">{t('stats.title')}</h2>
           <ProgressBar />
         </div>
 
         {/* Categories */}
         <div className="mb-12">
-          <h2 className="text-2xl font-bold mb-6">Catégories de cours</h2>
+          <h2 className="text-2xl font-bold mb-6">{t('categories.title')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => {
               const icons = {
@@ -86,15 +87,15 @@ export default function Home() {
 
               return (
                 <Link key={category.id} to={`/lesson/${category.lessons[0]}`}>
-                  <Card className="p-6 gradient-card border border-border/50 shadow-card cursor-pointer relative overflow-hidden">
+                  <Card className="p-6 gradient-card border border-border/50 shadow-card cursor-pointer relative overflow-hidden h-full">
                     <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center mb-4 shadow-inner">
                       <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <h3 className="font-bold text-lg mb-2">
+                    <h3 className="font-bold text-lg mb-2 line-clamp-2 min-h-[3.5rem]">
                       {category.icon} {category.name}
                     </h3>
                     <p className="text-sm text-muted-foreground">
-                      {category.lessons.length} cours • Interactif
+                      {category.lessons.length} {t('categories.courses')} • {t('categories.interactive')}
                     </p>
                   </Card>
                 </Link>
@@ -111,9 +112,9 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl gradient-primary flex items-center justify-center mb-4 glow-primary">
                 <BookOpen className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2">📚 Cours structurés</h3>
+              <h3 className="font-bold text-lg mb-2">{t('features.courses.title')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                50+ leçons complètes du niveau débutant aux stratégies avancées avec explications détaillées
+                {t('features.courses.desc')}
               </p>
             </div>
           </Card>
@@ -124,9 +125,9 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl gradient-secondary flex items-center justify-center mb-4 shadow-glow">
                 <TrendingUp className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2">✅ Quiz interactifs</h3>
+              <h3 className="font-bold text-lg mb-2">{t('features.quiz.title')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Valide tes connaissances avec 200+ questions de quiz à chaque fin de leçon
+                {t('features.quiz.desc')}
               </p>
             </div>
           </Card>
@@ -137,9 +138,9 @@ export default function Home() {
               <div className="w-12 h-12 rounded-xl gradient-accent flex items-center justify-center mb-4 shadow-glow">
                 <Brain className="w-6 h-6 text-white" />
               </div>
-              <h3 className="font-bold text-lg mb-2">🤖 Assistant IA</h3>
+              <h3 className="font-bold text-lg mb-2">{t('features.ai.title')}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Gemini IA spécialisé en crypto disponible 24/7 pour répondre à tes questions
+                {t('features.ai.desc')}
               </p>
             </div>
           </Card>
@@ -150,15 +151,15 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
           <div className="relative z-10 text-center max-w-3xl mx-auto">
             <h2 className="text-4xl font-black mb-4 text-gradient">
-              Prêt à devenir un pro du trading crypto ? 🚀
+              {t('cta.title')}
             </h2>
             <p className="text-lg text-muted-foreground mb-8">
-              Rejoins la plateforme et commence ton apprentissage dès maintenant. C'est 100% gratuit et sans engagement.
+              {t('cta.desc')}
             </p>
             <Link to="/lesson/6-rules-of-trading">
               <Button size="lg" className="gradient-primary glow-primary-lg text-lg px-12 py-6 font-bold">
                 <BookOpen className="w-6 h-6 mr-2" />
-                Débuter mon parcours
+                {t('cta.button')}
               </Button>
             </Link>
           </div>
@@ -170,7 +171,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              CryptoLearn Hub © 2025 — Site éducatif non financier
+              {t('footer.copyright')}
             </p>
             <div className="flex gap-6 text-sm">
               <a

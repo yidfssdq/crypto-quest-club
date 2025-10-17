@@ -6,8 +6,10 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
-import { User, Loader2, ArrowLeft, Lock } from 'lucide-react';
+import { User, Loader2, ArrowLeft, Lock, Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface Profile {
   username: string;
@@ -23,6 +25,7 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [updating, setUpdating] = useState(false);
   const navigate = useNavigate();
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     loadProfile();
@@ -50,7 +53,7 @@ export default function ProfilePage() {
         setUsername(profileData.username);
       }
     } catch (error: any) {
-      toast.error('Erreur lors du chargement du profil');
+      toast.error(t('profile.error'));
     } finally {
       setLoading(false);
     }
@@ -72,10 +75,10 @@ export default function ProfilePage() {
 
       if (profileError) throw profileError;
 
-      toast.success('Profil mis à jour !');
+      toast.success(t('profile.success'));
       loadProfile();
     } catch (error: any) {
-      toast.error(error.message || 'Erreur lors de la mise à jour');
+      toast.error(error.message || t('profile.error'));
     } finally {
       setUpdating(false);
     }
@@ -85,12 +88,12 @@ export default function ProfilePage() {
     e.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      toast.error('Les mots de passe ne correspondent pas');
+      toast.error(t('profile.passwordError'));
       return;
     }
 
     if (newPassword.length < 6) {
-      toast.error('Le mot de passe doit contenir au moins 6 caractères');
+      toast.error(t('profile.passwordShort'));
       return;
     }
 
@@ -103,11 +106,11 @@ export default function ProfilePage() {
 
       if (error) throw error;
 
-      toast.success('Mot de passe mis à jour !');
+      toast.success(t('profile.passwordSuccess'));
       setNewPassword('');
       setConfirmPassword('');
     } catch (error: any) {
-      toast.error(error.message || 'Erreur lors de la mise à jour');
+      toast.error(error.message || t('profile.error'));
     } finally {
       setUpdating(false);
     }
@@ -127,11 +130,11 @@ export default function ProfilePage() {
         <Link to="/">
           <Button variant="outline" size="sm" className="mb-4">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Retour
+            {t('profile.back')}
           </Button>
         </Link>
 
-        <h1 className="text-4xl font-bold mb-8 text-gradient">Mon Profil</h1>
+        <h1 className="text-4xl font-bold mb-8 text-gradient">{t('profile.title')}</h1>
 
         <div className="space-y-6">
           {/* Profile Info Card */}
@@ -148,7 +151,7 @@ export default function ProfilePage() {
 
             <form onSubmit={handleUpdateProfile} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="username">Pseudo</Label>
+                <Label htmlFor="username">{t('profile.username')}</Label>
                 <Input
                   id="username"
                   type="text"
@@ -160,7 +163,7 @@ export default function ProfilePage() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t('profile.email')}</Label>
                 <Input
                   id="email"
                   type="email"
@@ -168,9 +171,29 @@ export default function ProfilePage() {
                   disabled
                   className="bg-muted/50 cursor-not-allowed"
                 />
-                <p className="text-xs text-muted-foreground">
-                  L'email ne peut pas être modifié
-                </p>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="language">{t('profile.language')}</Label>
+                <Select value={language} onValueChange={(value: 'fr' | 'en') => setLanguage(value)}>
+                  <SelectTrigger className="bg-background/50">
+                    <SelectValue placeholder={t('profile.selectLanguage')} />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="fr">
+                      <div className="flex items-center gap-2">
+                        <span>🇫🇷</span>
+                        <span>{t('profile.french')}</span>
+                      </div>
+                    </SelectItem>
+                    <SelectItem value="en">
+                      <div className="flex items-center gap-2">
+                        <span>🇬🇧</span>
+                        <span>{t('profile.english')}</span>
+                      </div>
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Button
@@ -181,10 +204,10 @@ export default function ProfilePage() {
                 {updating ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Mise à jour...
+                    {t('profile.updating')}
                   </>
                 ) : (
-                  'Mettre à jour le profil'
+                  t('profile.update')
                 )}
               </Button>
             </form>
@@ -194,45 +217,31 @@ export default function ProfilePage() {
           <Card className="p-6 gradient-card border-border shadow-card">
             <div className="flex items-center gap-2 mb-4">
               <Lock className="w-5 h-5 text-primary" />
-              <h2 className="text-xl font-bold">Changer le mot de passe</h2>
+              <h2 className="text-xl font-bold">{t('profile.password')}</h2>
             </div>
 
             <form onSubmit={handleUpdatePassword} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="current-password">Mot de passe actuel</Label>
-                <Input
-                  id="current-password"
-                  type="password"
-                  value="••••••••"
-                  disabled
-                  className="bg-muted/50 cursor-not-allowed"
-                />
-                <p className="text-xs text-muted-foreground">
-                  Actuellement haché pour la sécurité
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="new-password">Nouveau mot de passe</Label>
+                <Label htmlFor="new-password">{t('profile.newPassword')}</Label>
                 <Input
                   id="new-password"
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Nouveau mot de passe"
+                  placeholder={t('profile.newPassword')}
                   className="bg-background/50"
                   minLength={6}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="confirm-password">Confirmer le mot de passe</Label>
+                <Label htmlFor="confirm-password">{t('profile.confirmPassword')}</Label>
                 <Input
                   id="confirm-password"
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Confirmer le mot de passe"
+                  placeholder={t('profile.confirmPassword')}
                   className="bg-background/50"
                   minLength={6}
                 />
@@ -246,10 +255,10 @@ export default function ProfilePage() {
                 {updating ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Mise à jour...
+                    {t('profile.updating')}
                   </>
                 ) : (
-                  'Changer le mot de passe'
+                  t('profile.updatePassword')
                 )}
               </Button>
             </form>

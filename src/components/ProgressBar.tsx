@@ -1,12 +1,26 @@
-import { getProgress, getCompletionPercentage, getTotalScore } from '@/utils/progress';
+import { useState, useEffect } from 'react';
+import { getProgress, getCompletionPercentage, getTotalScore } from '@/utils/progressSync';
 import { Trophy, Star, Target } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { UserProgress } from '@/types/course';
 
 export function ProgressBar() {
-  const progress = getProgress();
-  const percentage = getCompletionPercentage();
-  const avgScore = getTotalScore();
+  const [progress, setProgress] = useState<UserProgress>({ completedLessons: [], quizScores: {}, level: 'Débutant' });
+  const [percentage, setPercentage] = useState(0);
+  const [avgScore, setAvgScore] = useState(0);
   const { t } = useLanguage();
+
+  useEffect(() => {
+    const loadData = async () => {
+      const prog = await getProgress();
+      const perc = await getCompletionPercentage();
+      const score = await getTotalScore();
+      setProgress(prog);
+      setPercentage(perc);
+      setAvgScore(score);
+    };
+    loadData();
+  }, []);
 
   const getLevelColor = () => {
     switch (progress.level) {

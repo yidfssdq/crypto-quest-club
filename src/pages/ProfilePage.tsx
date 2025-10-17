@@ -10,6 +10,7 @@ import { User, Loader2, ArrowLeft, Lock, Languages } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { usernameUpdateSchema, passwordUpdateSchema } from '@/lib/validation';
 
 interface Profile {
   username: string;
@@ -64,13 +65,23 @@ export default function ProfilePage() {
     setUpdating(true);
 
     try {
+      // Validate username
+      const result = usernameUpdateSchema.safeParse({ username: username.trim() });
+      
+      if (!result.success) {
+        const firstError = result.error.errors[0];
+        toast.error(firstError.message);
+        setUpdating(false);
+        return;
+      }
+
       const { data: { user } } = await supabase.auth.getUser();
       if (!user) throw new Error('Non connecté');
 
       // Update username
       const { error: profileError } = await supabase
         .from('profiles')
-        .update({ username })
+        .update({ username: result.data.username })
         .eq('id', user.id);
 
       if (profileError) throw profileError;
@@ -92,8 +103,12 @@ export default function ProfilePage() {
       return;
     }
 
-    if (newPassword.length < 6) {
-      toast.error(t('profile.passwordShort'));
+    // Validate password
+    const result = passwordUpdateSchema.safeParse({ password: newPassword });
+    
+    if (!result.success) {
+      const firstError = result.error.errors[0];
+      toast.error(firstError.message);
       return;
     }
 
@@ -101,7 +116,7 @@ export default function ProfilePage() {
 
     try {
       const { error } = await supabase.auth.updateUser({
-        password: newPassword,
+        password: result.data.password,
       });
 
       if (error) throw error;
@@ -230,7 +245,7 @@ export default function ProfilePage() {
                   onChange={(e) => setNewPassword(e.target.value)}
                   placeholder={t('profile.newPassword')}
                   className="bg-background/50"
-                  minLength={6}
+                  minLength={8}
                 />
               </div>
 
@@ -243,7 +258,7 @@ export default function ProfilePage() {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder={t('profile.confirmPassword')}
                   className="bg-background/50"
-                  minLength={6}
+                  minLength={8}
                 />
               </div>
 

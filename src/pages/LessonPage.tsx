@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { getLessonById } from '@/data/courses';
 import { Quiz } from '@/components/Quiz';
@@ -5,13 +6,24 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowLeft, Target, CheckCircle, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { markLessonComplete, isLessonCompleted } from '@/utils/progress';
+import { markLessonComplete, isLessonCompleted } from '@/utils/progressSync';
 import { useToast } from '@/hooks/use-toast';
 
 export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
   const { toast } = useToast();
+  const [isCompleted, setIsCompleted] = useState(false);
   
+  useEffect(() => {
+    const checkCompletion = async () => {
+      if (lessonId) {
+        const completed = await isLessonCompleted(lessonId);
+        setIsCompleted(completed);
+      }
+    };
+    checkCompletion();
+  }, [lessonId]);
+
   if (!lessonId) {
     return <Navigate to="/" />;
   }
@@ -34,10 +46,9 @@ export default function LessonPage() {
     );
   }
 
-  const isCompleted = isLessonCompleted(lessonId);
-
-  const handleQuizComplete = (score: number) => {
-    markLessonComplete(lessonId, score);
+  const handleQuizComplete = async (score: number) => {
+    await markLessonComplete(lessonId, score);
+    setIsCompleted(true);
     
     if (score >= 70) {
       toast({

@@ -38,6 +38,36 @@ export type Database = {
         }
         Relationships: []
       }
+      user_progress: {
+        Row: {
+          completed_lessons: string[] | null
+          created_at: string | null
+          id: string
+          level: string | null
+          quiz_scores: Json | null
+          updated_at: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_lessons?: string[] | null
+          created_at?: string | null
+          id?: string
+          level?: string | null
+          quiz_scores?: Json | null
+          updated_at?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_lessons?: string[] | null
+          created_at?: string | null
+          id?: string
+          level?: string | null
+          quiz_scores?: Json | null
+          updated_at?: string | null
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

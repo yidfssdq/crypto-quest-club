@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 import { BookOpen, CheckCircle, Lock, User, LogOut } from 'lucide-react';
 import { categories } from '@/data/courses';
-import { isLessonCompleted } from '@/utils/progress';
+import { isLessonCompleted } from '@/utils/progressSync';
 import { cn } from '@/lib/utils';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -17,14 +17,17 @@ export function Sidebar() {
   const location = useLocation();
   const [user, setUser] = useState<any>(null);
   const [profile, setProfile] = useState<UserProfile | null>(null);
+  const [completedLessons, setCompletedLessons] = useState<string[]>([]);
 
   useEffect(() => {
     checkUser();
+    loadCompletedLessons();
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null);
       if (session?.user) {
         loadProfile(session.user.id);
+        loadCompletedLessons();
       } else {
         setProfile(null);
       }
@@ -32,6 +35,17 @@ export function Sidebar() {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  const loadCompletedLessons = async () => {
+    const allLessons = categories.flatMap(cat => cat.lessons);
+    const completed = [];
+    for (const lessonId of allLessons) {
+      if (await isLessonCompleted(lessonId)) {
+        completed.push(lessonId);
+      }
+    }
+    setCompletedLessons(completed);
+  };
 
   const checkUser = async () => {
     const { data: { user } } = await supabase.auth.getUser();
@@ -125,7 +139,7 @@ export function Sidebar() {
             </h3>
             <ul className="space-y-1">
               {category.lessons.map((lessonId) => {
-                const isCompleted = isLessonCompleted(lessonId);
+                const isCompleted = completedLessons.includes(lessonId);
                 const isActive = location.pathname === `/lesson/${lessonId}`;
                 
                 return (

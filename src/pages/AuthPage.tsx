@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Loader2 } from 'lucide-react';
+import { authSchema } from '@/lib/validation';
 
 export default function AuthPage() {
   const [isLogin, setIsLogin] = useState(true);
@@ -21,10 +22,26 @@ export default function AuthPage() {
     setLoading(true);
 
     try {
+      // Validate inputs
+      const validationData = {
+        email: email.trim(),
+        password,
+        username: !isLogin ? (username.trim() || email.split('@')[0]) : undefined
+      };
+
+      const result = authSchema.safeParse(validationData);
+      
+      if (!result.success) {
+        const firstError = result.error.errors[0];
+        toast.error(firstError.message);
+        setLoading(false);
+        return;
+      }
+
       if (isLogin) {
         const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
+          email: result.data.email,
+          password: result.data.password,
         });
 
         if (error) throw error;
@@ -32,11 +49,11 @@ export default function AuthPage() {
         navigate('/');
       } else {
         const { error } = await supabase.auth.signUp({
-          email,
-          password,
+          email: result.data.email,
+          password: result.data.password,
           options: {
             data: {
-              username: username || email.split('@')[0],
+              username: result.data.username,
             },
             emailRedirectTo: `${window.location.origin}/`,
           },
@@ -105,7 +122,7 @@ export default function AuthPage() {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="••••••••"
               className="bg-background/50"
-              minLength={6}
+              minLength={8}
             />
           </div>
 

@@ -1,6 +1,7 @@
 import { Lesson, Category } from '@/types/course';
 import { beginningsLessonsFr } from './beginningsCourses';
 import { technicalLessonsFr } from './technicalCourses';
+import { fundamentalLessonsFr } from './fundamentalCourses';
 import { categoryQuizzesFr } from './categoryQuizzes';
 
 export const categories: Category[] = [
@@ -72,9 +73,9 @@ export const categories: Category[] = [
     lessons: [
       'fundamental-analysis-basics',
       'interesting-site-links',
-      'ws-asian-london-session',
+      'trading-sessions',
       'tokenomics',
-      'on-chain-analysis',
+      'onchain-analysis',
       'news-trading',
       'economic-calendar',
       'whale-watching',

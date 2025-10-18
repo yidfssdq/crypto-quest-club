@@ -77,6 +77,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {categories.map((category) => {
               const icons = {
+                beginnings: BookOpen,
                 basics: BookOpen,
                 technical: TrendingUp,
                 fundamental: Brain,

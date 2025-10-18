@@ -111,6 +111,9 @@ export const categories: Category[] = [
 ];
 
 export const lessons: Record<string, Lesson> = {
+  ...beginningsLessonsFr,
+  ...technicalLessonsFr,
+  ...categoryQuizzesFr,
   'macd-indicator': {
     id: 'macd-indicator',
     title: 'Indicateur MACD - Moving Average Convergence Divergence',

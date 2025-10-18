@@ -4,34 +4,40 @@ import { enLessons } from './englishLessons';
 
 const enCategories: Category[] = [
   {
+    id: 'beginnings',
+    name: 'The Beginnings',
+    icon: '🚀',
+    lessons: frCategories[0].lessons
+  },
+  {
     id: 'basics',
     name: 'Trading Basics',
     icon: '🪙',
-    lessons: frCategories[0].lessons
+    lessons: frCategories[1].lessons
   },
   {
     id: 'technical',
     name: 'Technical Analysis',
     icon: '📈',
-    lessons: frCategories[1].lessons
+    lessons: frCategories[2].lessons
   },
   {
     id: 'fundamental',
     name: 'Fundamental Analysis',
     icon: '🧠',
-    lessons: frCategories[2].lessons
+    lessons: frCategories[3].lessons
   },
   {
     id: 'strategies',
     name: 'Advanced Strategies',
     icon: '🎯',
-    lessons: frCategories[3].lessons
+    lessons: frCategories[4].lessons
   },
   {
     id: 'misc',
     name: 'Miscellaneous',
     icon: '💰',
-    lessons: frCategories[4].lessons
+    lessons: frCategories[5].lessons
   }
 ];
 

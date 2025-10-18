@@ -1,6 +1,28 @@
 import { Lesson, Category } from '@/types/course';
+import { beginningsLessonsFr } from './beginningsCourses';
+import { technicalLessonsFr } from './technicalCourses';
+import { categoryQuizzesFr } from './categoryQuizzes';
 
 export const categories: Category[] = [
+  {
+    id: 'beginnings',
+    name: 'Les débuts',
+    icon: '🚀',
+    lessons: [
+      'what-is-crypto',
+      'what-is-wallet',
+      'how-to-create-wallet',
+      'how-to-buy-crypto',
+      'transfer-crypto-to-wallet',
+      'crypto-security',
+      'crypto-trading-basics',
+      'technical-analysis-crypto',
+      'fundamental-analysis-crypto',
+      'useful-crypto-resources',
+      'practical-beginner-tips',
+      'beginnings-category-quiz'
+    ]
+  },
   {
     id: 'basics',
     name: 'Bases du trading',
@@ -17,7 +39,8 @@ export const categories: Category[] = [
       'trading-journal',
       'position-sizing',
       'market-orders',
-      'candlestick-patterns'
+      'candlestick-patterns',
+      'basics-category-quiz'
     ]
   },
   {
@@ -38,7 +61,8 @@ export const categories: Category[] = [
       'trend-lines',
       'volume-analysis',
       'ichimoku-cloud',
-      'divergence-trading'
+      'divergence-trading',
+      'technical-category-quiz'
     ]
   },
   {
@@ -53,7 +77,8 @@ export const categories: Category[] = [
       'on-chain-analysis',
       'news-trading',
       'economic-calendar',
-      'whale-watching'
+      'whale-watching',
+      'fundamental-category-quiz'
     ]
   },
   {
@@ -67,7 +92,8 @@ export const categories: Category[] = [
       'range-trading',
       'arbitrage',
       'grid-trading',
-      'dca-strategy'
+      'dca-strategy',
+      'strategies-category-quiz'
     ]
   },
   {

@@ -113,6 +113,7 @@ export const categories: Category[] = [
 export const lessons: Record<string, Lesson> = {
   ...beginningsLessonsFr,
   ...technicalLessonsFr,
+  ...fundamentalLessonsFr,
   ...categoryQuizzesFr,
   'macd-indicator': {
     id: 'macd-indicator',

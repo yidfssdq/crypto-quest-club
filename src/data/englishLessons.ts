@@ -1,4 +1,5 @@
 import { Lesson } from '@/types/course';
+import { fundamentalLessonsEn } from './fundamentalCoursesEn';
 
 // English translations for all lessons
 export const enLessons: Record<string, Lesson> = {

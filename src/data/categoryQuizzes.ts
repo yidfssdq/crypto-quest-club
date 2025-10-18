@@ -8,11 +8,33 @@ export const categoryQuizzesFr: Record<string, Lesson> = {
     category: 'beginnings',
     objective: 'Valider vos connaissances sur les bases crypto',
     content: 'Ce quiz couvre tous les concepts des débuts en crypto. Il faut 70% pour valider.',
-    quiz: Array.from({ length: 25 }, (_, i) => ({
-      question: `Question ${i + 1} sur les bases crypto`,
-      options: ['Option A', 'Option B', 'Option C'],
-      correctAnswer: Math.floor(Math.random() * 3)
-    }))
+    quiz: [
+      { question: 'Qu\'est-ce que Bitcoin ?', options: ['Une banque', 'La première crypto-monnaie', 'Un réseau social'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que la blockchain ?', options: ['Un registre public sécurisé', 'Un type de crypto', 'Une app mobile'], correctAnswer: 0 },
+      { question: 'Que ne faut-il JAMAIS partager ?', options: ['Adresse publique', 'Clé privée', 'Nom du wallet'], correctAnswer: 1 },
+      { question: 'Quelle est la différence entre hot et cold wallet ?', options: ['Le prix', 'Hot est en ligne, Cold hors ligne', 'La couleur'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un exchange ?', options: ['Un wallet', 'Une plateforme d\'achat/vente de crypto', 'Une blockchain'], correctAnswer: 1 },
+      { question: 'Que signifie KYC ?', options: ['Know Your Crypto', 'Know Your Customer', 'Key Your Coin'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'une seed phrase ?', options: ['Un mot de passe', 'Une phrase de récupération du wallet', 'Un code promo'], correctAnswer: 1 },
+      { question: 'Combien y a-t-il de Bitcoin au maximum ?', options: ['21 millions', 'Illimité', '100 millions'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un stablecoin ?', options: ['Une crypto volatile', 'Une crypto indexée sur monnaie fiat', 'Un type de wallet'], correctAnswer: 1 },
+      { question: 'Que signifie HODL ?', options: ['Hold On for Dear Life', 'High Order Dollars', 'Hot Decentralized Ledger'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le staking ?', options: ['Vendre des crypto', 'Bloquer des crypto pour des récompenses', 'Acheter des NFT'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que DeFi ?', options: ['Decentralized Finance', 'Defined Financial', 'Digital Fiat'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un smart contract ?', options: ['Un contrat papier', 'Un programme auto-exécutable sur blockchain', 'Un avocat'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un NFT ?', options: ['Non-Fungible Token', 'New Financial Token', 'Net Future Trade'], correctAnswer: 0 },
+      { question: 'Pourquoi vérifier l\'adresse avant envoi ?', options: ['Par habitude', 'Car transactions irréversibles', 'Ce n\'est pas important'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que la volatilité ?', options: ['Stabilité du prix', 'Fluctuation du prix', 'Volume de trading'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un altcoin ?', options: ['Alternative à Bitcoin', 'Un wallet alternatif', 'Une blockchain'], correctAnswer: 0 },
+      { question: 'Que signifie FOMO ?', options: ['Fear Of Missing Out', 'For Money Only', 'First Order Market'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le mining ?', options: ['Acheter des crypto', 'Valider transactions et créer nouveaux blocs', 'Trader'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'une gas fee ?', options: ['Frais de transaction', 'Prix du Bitcoin', 'Type de crypto'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un CEX ?', options: ['Centralized Exchange', 'Crypto Execution', 'Cold Exchange'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un DEX ?', options: ['Digital Exchange', 'Decentralized Exchange', 'Defined Exchange'], correctAnswer: 1 },
+      { question: 'Pourquoi utiliser 2FA ?', options: ['Pour trader plus vite', 'Pour sécuriser son compte', 'Ce n\'est pas utile'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que le yield farming ?', options: ['Cultiver des plantes', 'Fournir liquidité pour récompenses', 'Miner du Bitcoin'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un airdrop ?', options: ['Distribution gratuite de tokens', 'Un hack', 'Un type de wallet'], correctAnswer: 0 }
+    ]
   },
   'basics-category-quiz': {
     id: 'basics-category-quiz',
@@ -20,11 +42,33 @@ export const categoryQuizzesFr: Record<string, Lesson> = {
     category: 'basics',
     objective: 'Valider vos connaissances sur les bases du trading',
     content: 'Ce quiz couvre tous les concepts des bases du trading. Il faut 70% pour valider.',
-    quiz: Array.from({ length: 25 }, (_, i) => ({
-      question: `Question ${i + 1} sur les bases du trading`,
-      options: ['Option A', 'Option B', 'Option C'],
-      correctAnswer: Math.floor(Math.random() * 3)
-    }))
+    quiz: [
+      { question: 'Qu\'est-ce que le trading ?', options: ['Acheter et vendre des actifs', 'Miner du Bitcoin', 'Créer des NFT'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un support ?', options: ['Zone de résistance', 'Zone où le prix rebondit vers le haut', 'Un indicateur'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'une résistance ?', options: ['Zone où le prix rebondit vers le bas', 'Un support', 'Un pattern'], correctAnswer: 0 },
+      { question: 'Que signifie "long" ?', options: ['Vendre', 'Acheter en anticipant hausse', 'Attendre'], correctAnswer: 1 },
+      { question: 'Que signifie "short" ?', options: ['Vendre en anticipant baisse', 'Acheter', 'Attendre'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un stop-loss ?', options: ['Un profit', 'Ordre pour limiter pertes', 'Un indicateur'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un take-profit ?', options: ['Ordre pour sécuriser gains', 'Une perte', 'Un pattern'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le leverage ?', options: ['Un indicateur', 'Emprunter pour amplifier position', 'Un type de crypto'], correctAnswer: 1 },
+      { question: 'Quel risque avec leverage élevé ?', options: ['Aucun risque', 'Amplification pertes et gains', 'Uniquement profits'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un order book ?', options: ['Un livre', 'Liste ordres achat/vente', 'Un indicateur'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que la liquidité ?', options: ['Facilité acheter/vendre', 'Prix volatil', 'Un indicateur'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un market order ?', options: ['Ordre au prix actuel', 'Ordre limite', 'Stop-loss'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un limit order ?', options: ['Market order', 'Ordre à prix spécifique', 'Stop-loss'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que le spread ?', options: ['Différence bid/ask', 'Un indicateur', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une bougie ?', options: ['Représentation graphique OHLC', 'Un indicateur', 'Un pattern'], correctAnswer: 0 },
+      { question: 'Que signifie OHLC ?', options: ['Open High Low Close', 'Order High Limit Close', 'Only High Low Chart'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une bougie haussière ?', options: ['Rouge/baissière', 'Verte/clôture > ouverture', 'Neutre'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un timeframe ?', options: ['Période graphique', 'Un indicateur', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Pourquoi diversifier ?', options: ['Par habitude', 'Réduire risque', 'Augmenter risque'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que le risk management ?', options: ['Gestion du risque', 'Une stratégie', 'Un indicateur'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un pip ?', options: ['Plus petite variation prix', 'Un pattern', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le scalping ?', options: ['Trading rapide court terme', 'Holding long terme', 'Ne rien faire'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le swing trading ?', options: ['Scalping', 'Trading moyen terme', 'Day trading'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'une tendance ?', options: ['Direction générale prix', 'Un indicateur', 'Un pattern'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un breakout ?', options: ['Cassure support/résistance', 'Un pattern', 'Un indicateur'], correctAnswer: 0 }
+    ]
   },
   'technical-category-quiz': {
     id: 'technical-category-quiz',
@@ -32,11 +76,33 @@ export const categoryQuizzesFr: Record<string, Lesson> = {
     category: 'technical',
     objective: 'Valider vos connaissances en analyse technique',
     content: 'Ce quiz couvre tous les concepts d\'analyse technique. Il faut 70% pour valider.',
-    quiz: Array.from({ length: 25 }, (_, i) => ({
-      question: `Question ${i + 1} sur l'analyse technique`,
-      options: ['Option A', 'Option B', 'Option C'],
-      correctAnswer: Math.floor(Math.random() * 3)
-    }))
+    quiz: [
+      { question: 'Qu\'est-ce qu\'un Order Block ?', options: ['Zone institutionnelle', 'Un indicateur', 'Une résistance simple'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un FVG ?', options: ['Un indicateur', 'Fair Value Gap - déséquilibre prix', 'Un pattern'], correctAnswer: 1 },
+      { question: 'Comment tracer une trend line ?', options: ['Au hasard', 'Relier points pivots', 'Ligne horizontale'], correctAnswer: 1 },
+      { question: 'Qu\'indique volume élevé + cassure ?', options: ['Faux break', 'Continuation probable', 'Rien'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que Ichimoku Cloud ?', options: ['Un indicateur complet', 'Une stratégie', 'Un pattern'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une divergence ?', options: ['Prix vs indicateur divergent', 'Un pattern', 'Une trend'], correctAnswer: 0 },
+      { question: 'RSI au-dessus 70 indique ?', options: ['Survente', 'Surachat', 'Neutre'], correctAnswer: 1 },
+      { question: 'RSI en-dessous 30 indique ?', options: ['Survente', 'Surachat', 'Neutre'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce que le MACD ?', options: ['Indicateur momentum', 'Un pattern', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une EMA ?', options: ['Moyenne mobile exponentielle', 'Un pattern', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une SMA ?', options: ['Moyenne mobile simple', 'Un indicateur', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Cross EMA rapide > lente indique ?', options: ['Signal baissier', 'Signal haussier', 'Rien'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que les bandes de Bollinger ?', options: ['Indicateur volatilité', 'Un pattern', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Prix touche bande Bollinger haute ?', options: ['Surachat potentiel', 'Survente', 'Neutre'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un retracement Fibonacci ?', options: ['Niveaux support/résistance', 'Un indicateur', 'Une stratégie'], correctAnswer: 0 },
+      { question: 'Niveau Fibonacci clé ?', options: ['50%', '61.8%', '75%'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un pattern tête-épaules ?', options: ['Pattern retournement', 'Indicateur', 'Stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un double top ?', options: ['Pattern baissier', 'Pattern haussier', 'Neutre'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un double bottom ?', options: ['Pattern baissier', 'Pattern haussier', 'Neutre'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un triangle ?', options: ['Pattern consolidation', 'Indicateur', 'Stratégie'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un doji ?', options: ['Bougie indécision', 'Bougie haussière', 'Bougie baissière'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un hammer ?', options: ['Pattern retournement haussier', 'Indicateur', 'Pattern baissier'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'une étoile filante ?', options: ['Pattern baissier', 'Pattern haussier', 'Neutre'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce qu\'un engulfing ?', options: ['Pattern retournement', 'Indicateur', 'Stratégie'], correctAnswer: 0 },
+      { question: 'Confluence OB + FVG signifie ?', options: ['Zone faible', 'Zone haute probabilité', 'Zone neutre'], correctAnswer: 1 }
+    ]
   },
   'fundamental-category-quiz': {
     id: 'fundamental-category-quiz',
@@ -44,11 +110,33 @@ export const categoryQuizzesFr: Record<string, Lesson> = {
     category: 'fundamental',
     objective: 'Valider vos connaissances en analyse fondamentale',
     content: 'Ce quiz couvre tous les concepts d\'analyse fondamentale. Il faut 70% pour valider.',
-    quiz: Array.from({ length: 25 }, (_, i) => ({
-      question: `Question ${i + 1} sur l'analyse fondamentale`,
-      options: ['Option A', 'Option B', 'Option C'],
-      correctAnswer: Math.floor(Math.random() * 3)
-    }))
+    quiz: [
+      { question: 'Différence AT vs AF ?', options: ['AT = graphiques, AF = valeur intrinsèque', 'Aucune', 'AT long terme'], correctAnswer: 0 },
+      { question: 'Pourquoi lire whitepaper ?', options: ['Pour prix', 'Comprendre technologie et vision', 'Pour graphiques'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce que tokenomics ?', options: ['Économie du token', 'Prix token', 'Volume'], correctAnswer: 0 },
+      { question: 'Site pour prix crypto ?', options: ['Facebook', 'CoinMarketCap', 'Instagram'], correctAnswer: 1 },
+      { question: 'Site pour données on-chain ?', options: ['Glassnode', 'Twitter', 'YouTube'], correctAnswer: 0 },
+      { question: 'Session la plus volatile ?', options: ['Asian', 'Wall Street', 'Aucune'], correctAnswer: 1 },
+      { question: 'Horaires Asian Session UTC ?', options: ['0h-9h', '13h-22h', '8h-17h'], correctAnswer: 0 },
+      { question: 'Effet burn régulier token ?', options: ['Augmente offre', 'Réduit offre - déflationniste', 'Aucun'], correctAnswer: 1 },
+      { question: 'Qu\'analyse on-chain ?', options: ['Prix uniquement', 'Données blockchain', 'Réseaux sociaux'], correctAnswer: 1 },
+      { question: 'Pourquoi suivre whales ?', options: ['Pas important', 'Influencent marché', 'Connaître identité'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce qu\'un wallet actif ?', options: ['Fait transactions', 'Wallet vide', 'Wallet fermé'], correctAnswer: 0 },
+      { question: 'Comment identifier accumulation ?', options: ['Prix monte', 'Flux sortants exchanges', 'Flux vers exchanges'], correctAnswer: 1 },
+      { question: 'News peut influencer crypto ?', options: ['Météo uniquement', 'Régulation, partenariats, hacks', 'Rien'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce scalping ?', options: ['Hold long terme', 'Trading rapide court terme', 'Rien faire'], correctAnswer: 1 },
+      { question: 'Pourquoi stop-loss news trading ?', options: ['Pas utile', 'Protéger volatilité extrême', 'Gagner plus'], correctAnswer: 1 },
+      { question: 'Calendrier économique montre ?', options: ['Vacances', 'Publications économiques', 'Météo'], correctAnswer: 1 },
+      { question: 'Indicateurs influencent BTC/ETH ?', options: ['Tweets', 'Taux, inflation, chômage', 'Aucun'], correctAnswer: 1 },
+      { question: 'Publication crée volatilité ?', options: ['Taux FED', 'Météo', 'Sports'], correctAnswer: 0 },
+      { question: 'Qu\'est-ce whale crypto ?', options: ['Animal marin', 'Gros détenteur', 'Petit investisseur'], correctAnswer: 1 },
+      { question: 'Transfert vers exchange indique ?', options: ['Curiosité', 'Vente potentielle', 'Pas important'], correctAnswer: 1 },
+      { question: 'Qu\'est-ce accumulation ?', options: ['Vendre', 'Acheter progressivement', 'Rien'], correctAnswer: 1 },
+      { question: 'Outil suivre whales ?', options: ['Whale Alert', 'Facebook', 'Snapchat'], correctAnswer: 0 },
+      { question: 'Impact communauté projet ?', options: ['Aucun', 'Détermine adoption', 'Uniquement prix'], correctAnswer: 1 },
+      { question: 'Pourquoi partenariats importants ?', options: ['Pas importants', 'Boost légitimité et crédibilité', 'Prix uniquement'], correctAnswer: 1 },
+      { question: 'CryptoPanic pour ?', options: ['Trading', 'News crypto temps réel', 'Wallet'], correctAnswer: 1 }
+    ]
   },
   'strategies-category-quiz': {
     id: 'strategies-category-quiz',
@@ -56,10 +144,32 @@ export const categoryQuizzesFr: Record<string, Lesson> = {
     category: 'strategies',
     objective: 'Valider vos connaissances sur les stratégies avancées',
     content: 'Ce quiz couvre tous les concepts des stratégies avancées. Il faut 70% pour valider.',
-    quiz: Array.from({ length: 25 }, (_, i) => ({
-      question: `Question ${i + 1} sur les stratégies avancées`,
-      options: ['Option A', 'Option B', 'Option C'],
-      correctAnswer: Math.floor(Math.random() * 3)
-    }))
+    quiz: [
+      { question: 'Qu\'est-ce DCA ?', options: ['Achats réguliers montant fixe', 'Vendre tout', 'Hold'], correctAnswer: 0 },
+      { question: 'Avantage DCA ?', options: ['Prix parfait', 'Moyenne coût entrée', 'Gains garantis'], correctAnswer: 1 },
+      { question: 'Stratégie breakout ?', options: ['Entrer sur cassure', 'Attendre retracement', 'Ne rien faire'], correctAnswer: 0 },
+      { question: 'Confirmer breakout avec ?', options: ['Rien', 'Volume élevé', 'Prix bas'], correctAnswer: 1 },
+      { question: 'Stratégie scalping nécessite ?', options: ['Patience', 'Rapidité et discipline', 'Long terme'], correctAnswer: 1 },
+      { question: 'Timeframe scalping ?', options: ['D1', 'M1-M15', 'W1'], correctAnswer: 1 },
+      { question: 'Risk/Reward ratio 1:3 signifie ?', options: ['3x risque profit', '1 risque pour 3 profit', 'Égalité'], correctAnswer: 1 },
+      { question: 'Bon ratio risk/reward minimum ?', options: ['1:1', '1:2', '2:1'], correctAnswer: 1 },
+      { question: 'Hedging c\'est ?', options: ['Vendre tout', 'Protéger position opposée', 'Hold'], correctAnswer: 1 },
+      { question: 'Grid trading c\'est ?', options: ['Ordres multiples niveaux', 'Buy and hold', 'Scalping'], correctAnswer: 0 },
+      { question: 'Arbitrage c\'est ?', options: ['Hold', 'Profiter différences prix exchanges', 'Scalping'], correctAnswer: 1 },
+      { question: 'Mean reversion basé sur ?', options: ['Tendance', 'Retour moyenne', 'Breakout'], correctAnswer: 1 },
+      { question: 'Pyramiding c\'est ?', options: ['Ajouter positions gagnantes', 'Vendre pertes', 'Hold'], correctAnswer: 0 },
+      { question: 'Martingale risque ?', options: ['Aucun', 'Pertes exponentielles', 'Gains garantis'], correctAnswer: 1 },
+      { question: 'Kelly Criterion pour ?', options: ['Prix', 'Taille position optimale', 'Timing'], correctAnswer: 1 },
+      { question: 'Pairs trading c\'est ?', options: ['Hold 2 cryptos', 'Long 1, short autre corrélé', 'Scalping'], correctAnswer: 1 },
+      { question: 'Momentum trading suit ?', options: ['Tendance forte', 'Reversal', 'Range'], correctAnswer: 0 },
+      { question: 'Contrarian trading c\'est ?', options: ['Suivre tendance', 'Contre tendance', 'Hold'], correctAnswer: 1 },
+      { question: 'Position sizing important pour ?', options: ['Prix', 'Gestion risque', 'Timing'], correctAnswer: 1 },
+      { question: 'Trailing stop c\'est ?', options: ['Stop fixe', 'Stop suit prix', 'No stop'], correctAnswer: 1 },
+      { question: 'Copy trading c\'est ?', options: ['Trading solo', 'Copier traders pro', 'Hold'], correctAnswer: 1 },
+      { question: 'Stratégie range trading ?', options: ['Buy support, sell résistance', 'Breakout', 'Hold'], correctAnswer: 0 },
+      { question: 'Stratégie trend following ?', options: ['Contre tendance', 'Suivre tendance établie', 'Range'], correctAnswer: 1 },
+      { question: 'Stop hunting c\'est ?', options: ['Technique légale', 'Manipulation stop-loss', 'Stratégie'], correctAnswer: 1 },
+      { question: 'Backtesting sert à ?', options: ['Prédire futur', 'Tester stratégie historique', 'Rien'], correctAnswer: 1 }
+    ]
   }
 };

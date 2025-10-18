@@ -3,6 +3,7 @@ import { fundamentalLessonsEn } from './fundamentalCoursesEn';
 
 // English translations for all lessons
 export const enLessons: Record<string, Lesson> = {
+  ...fundamentalLessonsEn,
   // BASICS
   '6-rules-of-trading': {
     id: '6-rules-of-trading',

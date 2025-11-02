@@ -12,6 +12,19 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 const translations: Record<Language, Record<string, string>> = {
   fr: {
+    // Onboarding
+    'onboarding.step1.title': 'Bienvenue sur CryptoLearn',
+    'onboarding.step1.description': 'Apprenez le trading crypto de A à Z avec des cours structurés et des quiz interactifs.',
+    'onboarding.step2.title': 'Parcours d\'apprentissage complet',
+    'onboarding.step2.description': 'Des cours pour débutants aux stratégies avancées, progressez à votre rythme.',
+    'onboarding.step3.title': 'Validez vos connaissances',
+    'onboarding.step3.description': 'Chaque cours se termine par un quiz pour valider vos acquis et suivre votre progression.',
+    'onboarding.step4.title': 'Devenez un expert',
+    'onboarding.step4.description': 'Passez de débutant à expert et maîtrisez les marchés crypto.',
+    'onboarding.skip': 'Passer',
+    'onboarding.next': 'Suivant',
+    'onboarding.start': 'Commencer',
+    
     // Home page
     'hero.badge': '🚀 Plateforme éducative crypto',
     'hero.title': 'Maîtrise le trading crypto<br />comme un pro',
@@ -88,6 +101,19 @@ const translations: Record<Language, Record<string, string>> = {
     'quiz.finish': 'Terminer',
   },
   en: {
+    // Onboarding
+    'onboarding.step1.title': 'Welcome to CryptoLearn',
+    'onboarding.step1.description': 'Learn crypto trading from A to Z with structured courses and interactive quizzes.',
+    'onboarding.step2.title': 'Complete Learning Path',
+    'onboarding.step2.description': 'From beginner to advanced strategies, progress at your own pace.',
+    'onboarding.step3.title': 'Validate Your Knowledge',
+    'onboarding.step3.description': 'Each course ends with a quiz to validate your skills and track your progress.',
+    'onboarding.step4.title': 'Become an Expert',
+    'onboarding.step4.description': 'Progress from beginner to expert and master crypto markets.',
+    'onboarding.skip': 'Skip',
+    'onboarding.next': 'Next',
+    'onboarding.start': 'Get Started',
+    
     // Home page
     'hero.badge': '🚀 Crypto educational platform',
     'hero.title': 'Master crypto trading<br />like a pro',

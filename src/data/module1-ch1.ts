@@ -73,17 +73,6 @@ export const module1Chapter1Lessons: Record<string, Lesson> = {
   }
 };
 
-export const module1Chapter1LessonsEn: Record<string, Lesson> = {
-  'money-evolution': {
-    id: 'money-evolution',
-    title: "The History of Money",
-    category: 'Module 1 - Chapter 1',
-    objective: "Understand money evolution",
-    content: "# History of Money\n\nFrom barter to cryptocurrencies.",
-    quiz: module1Chapter1Lessons['money-evolution'].quiz
-  }
-};
-
 // Export also in English
 export const module1Chapter1LessonsEn: Record<string, Lesson> = {
   'money-evolution': {

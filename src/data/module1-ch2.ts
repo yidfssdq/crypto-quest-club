@@ -363,7 +363,7 @@ Il existe des faux sites et extensions frauduleuses.
 **Créez un mot de passe FORT :**
 - Au moins 8 caractères
 - Majuscules + minuscules + chiffres + symboles
-- Exemple : `Cr!pt0_S3cur3_2024`
+- Exemple : \`Cr!pt0_S3cur3_2024\`
 
 **⚠️ Ce mot de passe :**
 - Déverrouille MetaMask sur VOTRE appareil
@@ -379,10 +379,10 @@ Il existe des faux sites et extensions frauduleuses.
 Une **seed phrase** (ou phrase de récupération) est une série de **12 mots** qui permet de restaurer votre wallet sur n'importe quel appareil.
 
 **Exemple de seed phrase :**
-```
+\`\`\`
 witch collapse practice feed shame open despair
 creek road again ice least
-```
+\`\`\`
 
 #### ⚠️ RÈGLES D'OR ⚠️
 
@@ -422,7 +422,7 @@ MetaMask vous demande de **confirmer l'ordre des mots**.
 Votre wallet est créé.
 
 **Vous verrez :**
-- Votre **adresse publique** : `0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb`
+- Votre **adresse publique** : \`0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb\`
 - Votre **solde** : 0 ETH (pour l'instant)
 
 ---
@@ -431,7 +431,7 @@ Votre wallet est créé.
 
 ### 1. Adresse publique
 
-**Exemple :** `0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb`
+**Exemple :** \`0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb\`
 
 **C'est quoi ?**
 - Votre "IBAN crypto"
@@ -442,7 +442,7 @@ Votre wallet est créé.
 
 ### 2. Clé privée
 
-**Exemple :** `0xe87f4c5c3f4b8c9d2a1e6f7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7`
+**Exemple :** \`0xe87f4c5c3f4b8c9d2a1e6f7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7\`
 
 **C'est quoi ?**
 - Votre "mot de passe ultime"
@@ -457,7 +457,7 @@ Votre wallet est créé.
 
 ### 3. Seed phrase
 
-**Exemple :** `witch collapse practice feed shame open despair creek road again ice least`
+**Exemple :** \`witch collapse practice feed shame open despair creek road again ice least\`
 
 **C'est quoi ?**
 - Génère votre clé privée

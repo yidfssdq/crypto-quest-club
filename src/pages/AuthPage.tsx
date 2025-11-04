@@ -14,8 +14,19 @@ export default function AuthPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [referralCode, setReferralCode] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  // Check for referral code in URL
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get('ref');
+    if (ref) {
+      setReferralCode(ref);
+      setIsLogin(false);
+    }
+  }, []);
 
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,7 +59,7 @@ export default function AuthPage() {
         toast.success('Connexion réussie !');
         navigate('/');
       } else {
-        const { error } = await supabase.auth.signUp({
+        const { data: authData, error } = await supabase.auth.signUp({
           email: result.data.email,
           password: result.data.password,
           options: {
@@ -60,6 +71,24 @@ export default function AuthPage() {
         });
 
         if (error) throw error;
+
+        // If referral code provided, create referral record
+        if (referralCode && authData.user) {
+          const { data: referrer } = await supabase
+            .from('referral_codes')
+            .select('user_id')
+            .eq('code', referralCode.toUpperCase())
+            .single();
+
+          if (referrer) {
+            await supabase.from('referrals').insert({
+              referrer_id: referrer.user_id,
+              referred_user_id: authData.user.id,
+              referral_code: referralCode.toUpperCase()
+            });
+          }
+        }
+
         toast.success('Compte créé avec succès !');
         navigate('/');
       }
@@ -86,17 +115,31 @@ export default function AuthPage() {
 
         <form onSubmit={handleAuth} className="space-y-4">
           {!isLogin && (
-            <div className="space-y-2">
-              <Label htmlFor="username">Pseudo</Label>
-              <Input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                placeholder="Ton pseudo"
-                className="bg-background/50"
-              />
-            </div>
+            <>
+              <div className="space-y-2">
+                <Label htmlFor="username">Pseudo</Label>
+                <Input
+                  id="username"
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Ton pseudo"
+                  className="bg-background/50"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <Label htmlFor="referralCode">Code de parrainage (optionnel)</Label>
+                <Input
+                  id="referralCode"
+                  type="text"
+                  value={referralCode}
+                  onChange={(e) => setReferralCode(e.target.value.toUpperCase())}
+                  placeholder="CODE12345"
+                  className="bg-background/50 font-mono"
+                />
+              </div>
+            </>
           )}
 
           <div className="space-y-2">
